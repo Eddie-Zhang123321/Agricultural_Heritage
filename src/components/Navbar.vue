@@ -1,26 +1,24 @@
 <template>
   <header class="navbar-header">
-    <!-- 左侧 logo -->
-    <div class="logo-container">
-      <img src="../assets/5898d06b96571856a447e82bcef16fa.png" alt="Logo" class="logo-img" />
-      <span class="logo-text">农遗智慧基因</span>
-    </div>
+    <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
+      <!-- 左侧 logo 区域 -->
+      <el-menu-item index="0" class="logo-container">
+        <img src="../assets/5898d06b96571856a447e82bcef16fa.png" alt=" Logo" class="logo-img" />
+        <span class="logo-text">农遗智慧基因</span>
+      </el-menu-item>
 
-    <!-- 中间导航菜单 -->
-    <nav class="menu-nav">
-      <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
-        <el-menu-item index="1">关于农遗</el-menu-item>
-        <el-menu-item index="2">农遗数字基因图谱</el-menu-item>
-        <el-menu-item index="3">农遗基因AI智鉴</el-menu-item>
-        <el-menu-item index="4">数字文创</el-menu-item>
-      </el-menu>
-    </nav>
+      <!-- 中间菜单项 -->
+      <el-menu-item index="1">关于农遗</el-menu-item>
+      <el-menu-item index="2">农遗数字基因图谱</el-menu-item>
+      <el-menu-item index="3">农遗基因AI智鉴</el-menu-item>
+      <el-menu-item index="4">数字文创</el-menu-item>
 
-    <!-- 右侧登录/注册按钮 -->
-    <div class="auth-buttons">
-      <el-button size="small" @click="$router.push('/login')">登录</el-button>
-      <el-button size="small" type="primary" @click="$router.push('/register')">注册</el-button>
-    </div>
+      <!-- 右侧登录/注册 -->
+      <el-menu-item index="5" class="auth-links">
+        <router-link to="/login">登录</router-link> |
+        <router-link to="/register">注册</router-link>
+      </el-menu-item>
+    </el-menu>
   </header>
 </template>
 
@@ -41,14 +39,14 @@ export default {
 
 <style scoped>
 .navbar-header {
+  width: 100%;
+}
+
+.el-menu-demo {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   padding: 0 20px;
-  height: 60px;
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  position: relative;
 }
 
 .logo-container {
@@ -60,25 +58,22 @@ export default {
 }
 
 .logo-img {
-  height: 30px;
+  height: 50px;
   margin-right: 10px;
 }
 
-.menu-nav {
-  flex: 1;
-  text-align: center;
+.auth-links {
+  font-size: 14px;
+  color: #666;
 }
 
-.el-menu-demo {
-  display: inline-block;
-  padding: 0;
-  border-bottom: none !important;
-  /* 去掉下边框 */
+.auth-links a {
+  text-decoration: none;
+  color: inherit;
+  margin: 0 5px;
 }
 
-.auth-buttons {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.auth-links a:hover {
+  color: #409EFF;
 }
 </style>
