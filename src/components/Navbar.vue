@@ -27,12 +27,33 @@
 export default {
   data() {
     return {
-      activeIndex: '1' // 默认激活的菜单项
+      activeIndex: this.getActiveIndexByRoute(this.$route.path)
     };
   },
   methods: {
-    handleSelect(key, keyPath) {
-      console.log('选中的菜单:', key, keyPath);
+    // 根据路由返回对应的菜单 index
+    getActiveIndexByRoute(path) {
+      switch (path) {
+        case '/':
+          return '1'; // 首页
+        case '/create':
+          return '3'; // 农遗智创
+        case '/login':
+          return '5'; // 登录/注册
+        // 其他路由...
+        default:
+          return '1'; // 默认选中第一个
+      }
+    },
+    handleSelect(key) {
+      this.activeIndex = key; // 更新选中状态
+      if (key === '1') {
+        this.$router.push('/'); // 跳转到首页
+        console.log('跳转到首页');
+      }
+      if (key === '3') {
+        this.$router.push('/create');
+      }
     }
   }
 };
