@@ -68,6 +68,22 @@ import pm4 from './平面4.png'
 import pm5 from './平面5.png'
 import pm6 from './平面6.png'
 
+//农遗基因
+import g1 from './gene1.png'
+import g2 from './gene2.png'
+import g3 from './gene3.png'
+import g4 from './gene4.png'
+import g5 from './gene5.png'
+import g6 from './gene6.png'
+import g7 from './gene7.png'
+import g8 from './gene8.png'
+import g9 from './gene9.png'
+import g10 from './gene10.png'
+import g11 from './gene11.png'
+import g12 from './gene12.png'
+
+
+
 export {
   banner1, banner2, banner3,
   bg,
@@ -80,5 +96,6 @@ export {
   ty1, ty2, ty3, ty4, ty5, ty6, ty7,
   food1, food2,yx1, yx2,yt1, yt2,tb1, tb2,
   xg1, xg2, xg3, xg4, xg5, xg6,
-  pm1, pm2, pm3, pm4, pm5, pm6
+  pm1, pm2, pm3, pm4, pm5, pm6,
+  g1, g2, g3, g4, g5, g6, g7, g8, g9, g10, g11, g12
 }

@@ -35,11 +35,13 @@ export default {
     getActiveIndexByRoute(path) {
       switch (path) {
         case '/':
-          return '1'; // 首页
+          return '0'; // 首页
         case '/create':
           return '3'; // 农遗智创
         case '/login':
           return '5'; // 登录/注册
+        case '/gene':
+          return '1'; // 农遗数字基因
         // 其他路由...
         default:
           return '1'; // 默认选中第一个
@@ -47,12 +49,15 @@ export default {
     },
     handleSelect(key) {
       this.activeIndex = key; // 更新选中状态
-      if (key === '1') {
+      if (key === '0') {
         this.$router.push('/'); // 跳转到首页
         console.log('跳转到首页');
       }
       if (key === '3') {
         this.$router.push('/create');
+      }
+      if (key === '1') {
+        this.$router.push('/gene');
       }
     }
   }

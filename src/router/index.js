@@ -1,6 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import About from '../views/About.vue'
+import Create from '../views/Create.vue'
+import Gene from '../views/gene.vue'
+import { pa } from 'element-plus/es/locales.mjs'
 
 const routes = [
   {
@@ -16,7 +19,12 @@ const routes = [
   {
     path:'/create',
     name: '农遗智创',
-    component: () => import('../views/Create.vue')  
+    component: Create
+  },
+  {
+    path:'/gene',
+    name: '农遗基因',
+    component: Gene
   }
 ]
 
