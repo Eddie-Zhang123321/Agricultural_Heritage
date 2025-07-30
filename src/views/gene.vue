@@ -3,14 +3,16 @@
         <Navbar />
     </div>
     <div class="container">
-        <div class="cards-container">
-            <div class="card" v-for="(item, index) in geneItems" :key="index">
-                <div class="card-image">
-                    <img :src="item.image" alt="农遗基因图片" class="card-img" />
-                </div>
-            </div>
-        </div>
+    <div class="cards-container">
+      <div class="card" v-for="(item, index) in geneItems" :key="index">
+        <router-link :to="item.link" class="card-link">
+          <div class="card-image">
+            <img :src="item.image" alt="农遗基因图片" class="card-img" />
+          </div>
+        </router-link>
+      </div>
     </div>
+  </div>
     <PageFooter />
 </template>
 
@@ -21,18 +23,18 @@ import * as images from '@/assets/image.js'
 import { ref } from 'vue'
 
 const geneItems = ref([
-    { image: images.g1 },
-    { image: images.g2 },
-    { image: images.g3 },
-    { image: images.g4 },
-    { image: images.g5 },
-    { image: images.g6 },
-    { image: images.g7 },
-    { image: images.g8 },
-    { image: images.g9 },
-    { image: images.g10 },
-    { image: images.g11 },
-    { image: images.g12 }
+    { image: images.g1,link:'/sangjiyutang' },
+    { image: images.g2,link:'' },
+    { image: images.g3,link:'' },
+    { image: images.g4,link:'' },
+    { image: images.g5,link:'' },
+    { image: images.g6,link:'' },
+    { image: images.g7,link:'' },
+    { image: images.g8,link:'' },
+    { image: images.g9,link:'' },
+    { image: images.g10,link:'' },
+    { image: images.g11,link:'' },
+    { image: images.g12,link:'' }
 ])
 </script>
 
@@ -55,7 +57,15 @@ body {
     margin: 20px auto;
     padding: 20px;
 }
+.card-link {
+  display: block;
+  text-decoration: none;
+}
 
+.card-link:hover .card-img {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
 .cards-container {
     margin: 100px;
     margin-top: 50px;

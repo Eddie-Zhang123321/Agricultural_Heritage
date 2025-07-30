@@ -3,6 +3,7 @@ import Home from '../views/Home.vue'
 import About from '../views/About.vue'
 import Create from '../views/Create.vue'
 import Gene from '../views/gene.vue'
+import sangjiyutang from '../views/sangjiyutang.vue'
 import { pa } from 'element-plus/es/locales.mjs'
 
 const routes = [
@@ -25,7 +26,13 @@ const routes = [
     path:'/gene',
     name: '农遗基因',
     component: Gene
+  },
+  {
+    path:'/sangjiyutang',
+    name: '桑基鱼塘',
+    component: sangjiyutang
   }
+
 ]
 
 const router = createRouter({

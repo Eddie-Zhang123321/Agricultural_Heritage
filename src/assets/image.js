@@ -82,7 +82,41 @@ import g10 from './gene10.png'
 import g11 from './gene11.png'
 import g12 from './gene12.png'
 
+//粮食与生计
+import food11 from './粮食与生计1.png'
+import food12 from './粮食与生计2.png'
+import food13 from './粮食与生计3.png'
+import food14 from './粮食与生计4.png'
+import food15 from './粮食与生计5.png'
 
+//当地和传统知识体系
+import food16 from './当地和传统知识体系1.png'
+import food17 from './当地和传统知识体系2.png'
+import food18 from './当地和传统知识体系3.png'
+import food19 from './当地和传统知识体系4.png'
+import food20 from './当地和传统知识体系5.png'
+
+//文化价值
+import food21 from './文化价值1.png'
+import food22 from './文化价值2.png'
+import food23 from './文化价值3.png'
+import food24 from './文化价值4.png'
+import food25 from './文化价值5.jpg'
+import food26 from './文化价值6.jpg'
+import food27 from './文化价值7.jpg'
+
+//景观风貌特征
+import food28 from './景观风貌1.png'
+import food29 from './景观风貌2.png'
+import food30 from './景观风貌3.png'
+import food31 from './景观风貌4.png'
+import food32 from './景观风貌5.png'
+
+//农业生物多样性
+import food33 from './农业生物多样性1.png'
+import food34 from './农业生物多样性2.png'
+import food35 from './农业生物多样性3.png'
+import food36 from './农业生物多样性4.png'
 
 export {
   banner1, banner2, banner3,
@@ -97,5 +131,10 @@ export {
   food1, food2,yx1, yx2,yt1, yt2,tb1, tb2,
   xg1, xg2, xg3, xg4, xg5, xg6,
   pm1, pm2, pm3, pm4, pm5, pm6,
-  g1, g2, g3, g4, g5, g6, g7, g8, g9, g10, g11, g12
+  g1, g2, g3, g4, g5, g6, g7, g8, g9, g10, g11, g12,
+  food11, food12, food13, food14, food15,
+  food16, food17, food18, food19, food20,
+  food21, food22, food23, food24,food25, food26, food27,
+  food28, food29, food30, food31, food32,
+  food33, food34, food35, food36
 }
