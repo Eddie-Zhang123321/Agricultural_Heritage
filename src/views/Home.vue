@@ -59,7 +59,7 @@
           <!-- 遗产图卡 -->
           <el-row :gutter="20" class="card-area">
             <el-col :span="8" v-for="item in items" :key="item.title">
-              <router-link :to="item.link" class="card-link">
+              <router-link :to="item.link || '#'" class="card-link">
                 <el-card :body-style="{ padding: '0px' }">
                   <img :src="item.image" class="card-img" />
                 </el-card>
@@ -114,11 +114,11 @@ const experts = [
 
 const items = [
   { title: "浙江湖州桑基鱼塘系统", image: images.g1, link: '/sangjiyutang' },
-  { title: "浙江绍兴会稽山古香榧群", image: images.g2 },
-  { title: "福建安溪铁观音茶文化系统", image: images.g3 },
-  { title: "闽侯稻鱼鸭系统", image: images.g4 },
-  { title: "中国南方稻作梯田", image: images.g5 },
-  { title: "查看更多", image: images.more, link: '/gene' }
+  { title: "浙江绍兴会稽山古香榧群", image: images.g2, link: '#' },
+  { title: "福建安溪铁观音茶文化系统", image: images.g3, link: '#' },
+  { title: "闽侯稻鱼鸭系统", image: images.g4, link: '#' },
+  { title: "中国南方稻作梯田", image: images.g5, link: '#' },
+  { title: "查看更多", image: images.more1, link: '/gene' }
 ]
 </script>
 

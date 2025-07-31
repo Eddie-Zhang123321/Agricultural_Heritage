@@ -81,6 +81,7 @@ import g9 from '../gene9.png'
 import g10 from '../gene10.png'
 import g11 from '../gene11.png'
 import g12 from '../gene12.png'
+import more1 from '../查看更多.png'
 
 //粮食与生计
 import food11 from '../粮食与生计1.png'
@@ -140,7 +141,7 @@ export {
   food1, food2,yx1, yx2,yt1, yt2,tb1, tb2,
   xg1, xg2, xg3, xg4, xg5, xg6,
   pm1, pm2, pm3, pm4, pm5, pm6,
-  g1, g2, g3, g4, g5, g6, g7, g8, g9, g10, g11, g12,
+  g1, g2, g3, g4, g5, g6, g7, g8, g9, g10, g11, g12,more1,
   food11, food12, food13, food14, food15,
   food16, food17, food18, food19, food20,
   food21, food22, food23, food24,food25, food26, food27,
