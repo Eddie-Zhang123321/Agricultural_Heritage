@@ -52,7 +52,7 @@
 </template>
 
 <script setup>
-import * as images from '@/assets/image.js' // 包含 footerLogo 和 qrcode
+import * as images from '@/assets/index/image.js' // 包含 footerLogo 和 qrcode
 </script>
 
 <style scoped>

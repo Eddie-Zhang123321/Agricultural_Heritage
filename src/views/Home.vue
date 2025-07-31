@@ -59,9 +59,11 @@
           <!-- 遗产图卡 -->
           <el-row :gutter="20" class="card-area">
             <el-col :span="8" v-for="item in items" :key="item.title">
-              <el-card :body-style="{ padding: '0px' }">
-                <img :src="item.image" class="card-img" />
-              </el-card>
+              <router-link :to="item.link" class="card-link">
+                <el-card :body-style="{ padding: '0px' }">
+                  <img :src="item.image" class="card-img" />
+                </el-card>
+              </router-link>
             </el-col>
           </el-row>
         </div>
@@ -87,7 +89,7 @@
 import { ref } from 'vue'
 import Navbar from '@/components/Navbar.vue'
 import PageFooter from '@/components/PageFooter.vue'
-import * as images from '@/assets/image.js'
+import * as images from '@/assets/index/image.js'
 
 const banners = ref([
   { imageUrl: images.banner1 },
@@ -111,12 +113,12 @@ const experts = [
 ]
 
 const items = [
-  { title: "浙江湖州桑基鱼塘系统", image: images.huzhou },
-  { title: "浙江绍兴会稽山古香榧群", image: images.shaoxing },
-  { title: "福建安溪铁观音茶文化系统", image: images.anxi },
-  { title: "闽侯稻鱼鸭系统", image: images.minhou },
-  { title: "中国南方稻作梯田", image: images.nantian },
-  { title: "查看更多", image: images.more }
+  { title: "浙江湖州桑基鱼塘系统", image: images.g1, link: '/sangjiyutang' },
+  { title: "浙江绍兴会稽山古香榧群", image: images.g2 },
+  { title: "福建安溪铁观音茶文化系统", image: images.g3 },
+  { title: "闽侯稻鱼鸭系统", image: images.g4 },
+  { title: "中国南方稻作梯田", image: images.g5 },
+  { title: "查看更多", image: images.more, link: '/gene' }
 ]
 </script>
 

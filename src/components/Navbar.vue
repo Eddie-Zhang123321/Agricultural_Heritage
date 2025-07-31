@@ -11,8 +11,8 @@
       <!-- 中间菜单项 -->
       <el-menu-item index="1">农遗数字基因</el-menu-item>
       <el-menu-item index="2">农遗智游</el-menu-item>
-      <el-menu-item index="3">农遗智创</el-menu-item>
-      <el-menu-item index="4">农遗潮品</el-menu-item>
+      <el-menu-item index="3">农遗AI智创</el-menu-item>
+      <el-menu-item index="4">农遗素材库</el-menu-item>
 
       <!-- 右侧登录/注册 -->
       <el-menu-item index="5" class="auth-links">
@@ -42,6 +42,8 @@ export default {
           return '5'; // 登录/注册
         case '/gene':
           return '1'; // 农遗数字基因
+        case '/material':
+          return '4'
         // 其他路由...
         default:
           return '1'; // 默认选中第一个
@@ -55,6 +57,9 @@ export default {
       }
       if (key === '3') {
         this.$router.push('/create');
+      }
+      if (key === '4') {
+        this.$router.push('/material');
       }
       if (key === '1') {
         this.$router.push('/gene');

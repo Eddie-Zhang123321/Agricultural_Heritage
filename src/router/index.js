@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import About from '../views/About.vue'
+import Material from '../views/Material.vue'
 import Create from '../views/Create.vue'
 import Gene from '../views/gene.vue'
 import sangjiyutang from '../views/sangjiyutang.vue'
@@ -18,15 +19,21 @@ const routes = [
     component: About
   },
   {
-    path:'/create',
-    name: '农遗智创',
-    component: Create
-  },
-  {
     path:'/gene',
     name: '农遗基因',
     component: Gene
   },
+  {
+    path:'/create',
+    name: '农遗AI智创',
+    component: Create
+  },
+  {
+    path:'/material',
+    name: '素材库',
+    component: Material
+  },
+  
   {
     path:'/sangjiyutang',
     name: '桑基鱼塘',

@@ -22,9 +22,11 @@
                 <div class="">
                     <main class="card">
                         <div class="gallery-container" ref="container1" @mousedown="(e) => startDrag(e, 1)"
-                            @touchstart.passive="(e) => startDrag(e, 1)" @mousemove="(e) => handleDrag(e, 1)" @touchmove="(e) => handleDrag(e, 1)"
-                            @mouseup="(e) => endDrag(e, 1)" @mouseleave="(e) => endDrag(e, 1)" @touchend="(e) => endDrag(e, 1)">
-                            <div class="gallery-track" ref="track1" :style="{ transform: `translateX(${position1}px)` }">
+                            @touchstart.passive="(e) => startDrag(e, 1)" @mousemove="(e) => handleDrag(e, 1)"
+                            @touchmove="(e) => handleDrag(e, 1)" @mouseup="(e) => endDrag(e, 1)"
+                            @mouseleave="(e) => endDrag(e, 1)" @touchend="(e) => endDrag(e, 1)">
+                            <div class="gallery-track" ref="track1"
+                                :style="{ transform: `translateX(${position1}px)` }">
                                 <div v-for="(item, index) in galleryImages" :key="index" class="gallery-item">
                                     <img :src="item.image" :alt="item.title">
                                 </div>
@@ -38,9 +40,11 @@
                 <div class="">
                     <main class="card">
                         <div class="gallery-container" ref="container2" @mousedown="(e) => startDrag(e, 2)"
-                            @touchstart.passive="(e) => startDrag(e, 2)" @mousemove="(e) => handleDrag(e, 2)" @touchmove="(e) => handleDrag(e, 2)"
-                            @mouseup="(e) => endDrag(e, 2)" @mouseleave="(e) => endDrag(e, 2)" @touchend="(e) => endDrag(e, 2)">
-                            <div class="gallery-track" ref="track2" :style="{ transform: `translateX(${position2}px)` }">
+                            @touchstart.passive="(e) => startDrag(e, 2)" @mousemove="(e) => handleDrag(e, 2)"
+                            @touchmove="(e) => handleDrag(e, 2)" @mouseup="(e) => endDrag(e, 2)"
+                            @mouseleave="(e) => endDrag(e, 2)" @touchend="(e) => endDrag(e, 2)">
+                            <div class="gallery-track" ref="track2"
+                                :style="{ transform: `translateX(${position2}px)` }">
                                 <div v-for="(item, index) in galleryImages1" :key="index" class="gallery-item">
                                     <img :src="item.image" :alt="item.title">
                                 </div>
@@ -54,9 +58,11 @@
                 <div class="">
                     <main class="card">
                         <div class="gallery-container" ref="container3" @mousedown="(e) => startDrag(e, 3)"
-                            @touchstart.passive="(e) => startDrag(e, 3)" @mousemove="(e) => handleDrag(e, 3)" @touchmove="(e) => handleDrag(e, 3)"
-                            @mouseup="(e) => endDrag(e, 3)" @mouseleave="(e) => endDrag(e, 3)" @touchend="(e) => endDrag(e, 3)">
-                            <div class="gallery-track" ref="track3" :style="{ transform: `translateX(${position3}px)` }">
+                            @touchstart.passive="(e) => startDrag(e, 3)" @mousemove="(e) => handleDrag(e, 3)"
+                            @touchmove="(e) => handleDrag(e, 3)" @mouseup="(e) => endDrag(e, 3)"
+                            @mouseleave="(e) => endDrag(e, 3)" @touchend="(e) => endDrag(e, 3)">
+                            <div class="gallery-track" ref="track3"
+                                :style="{ transform: `translateX(${position3}px)` }">
                                 <div v-for="(item, index) in galleryImages2" :key="index" class="gallery-item">
                                     <img :src="item.image" :alt="item.title">
                                 </div>
@@ -70,9 +76,11 @@
                 <div class="">
                     <main class="card">
                         <div class="gallery-container" ref="container4" @mousedown="(e) => startDrag(e, 4)"
-                            @touchstart.passive="(e) => startDrag(e, 4)" @mousemove="(e) => handleDrag(e, 4)" @touchmove="(e) => handleDrag(e, 4)"
-                            @mouseup="(e) => endDrag(e, 4)" @mouseleave="(e) => endDrag(e, 4)" @touchend="(e) => endDrag(e, 4)">
-                            <div class="gallery-track" ref="track4" :style="{ transform: `translateX(${position4}px)` }">
+                            @touchstart.passive="(e) => startDrag(e, 4)" @mousemove="(e) => handleDrag(e, 4)"
+                            @touchmove="(e) => handleDrag(e, 4)" @mouseup="(e) => endDrag(e, 4)"
+                            @mouseleave="(e) => endDrag(e, 4)" @touchend="(e) => endDrag(e, 4)">
+                            <div class="gallery-track" ref="track4"
+                                :style="{ transform: `translateX(${position4}px)` }">
                                 <div v-for="(item, index) in galleryImages3" :key="index" class="gallery-item">
                                     <img :src="item.image" :alt="item.title">
                                 </div>
@@ -86,9 +94,11 @@
                 <div class="">
                     <main class="card">
                         <div class="gallery-container" ref="container5" @mousedown="(e) => startDrag(e, 5)"
-                            @touchstart.passive="(e) => startDrag(e, 5)" @mousemove="(e) => handleDrag(e, 5)" @touchmove="(e) => handleDrag(e, 5)"
-                            @mouseup="(e) => endDrag(e, 5)" @mouseleave="(e) => endDrag(e, 5)" @touchend="(e) => endDrag(e, 5)">
-                            <div class="gallery-track" ref="track5" :style="{ transform: `translateX(${position5}px)` }">
+                            @touchstart.passive="(e) => startDrag(e, 5)" @mousemove="(e) => handleDrag(e, 5)"
+                            @touchmove="(e) => handleDrag(e, 5)" @mouseup="(e) => endDrag(e, 5)"
+                            @mouseleave="(e) => endDrag(e, 5)" @touchend="(e) => endDrag(e, 5)">
+                            <div class="gallery-track" ref="track5"
+                                :style="{ transform: `translateX(${position5}px)` }">
                                 <div v-for="(item, index) in galleryImages4" :key="index" class="gallery-item">
                                     <img :src="item.image" :alt="item.title">
                                 </div>
@@ -106,49 +116,49 @@
 <script setup>
 import Navbar from '../components/Navbar.vue';
 import PageFooter from '../components/PageFooter.vue';
-import * as images from '@/assets/image.js'
+import * as images from '@/assets/index/image.js'
 import { ref, onMounted } from 'vue'
 
 // 图片数据
 const galleryImages = ref([
-    {image: images.food11,},
-    {image: images.food12,},
-    {image: images.food13,},
-    {image: images.food14,},
-    {image: images.food15,}
+    { image: images.food11, },
+    { image: images.food12, },
+    { image: images.food13, },
+    { image: images.food14, },
+    { image: images.food15, }
 ]);
 
 const galleryImages1 = ref([
-    {image: images.food16,},
-    {image: images.food17,},
-    {image: images.food18,},
-    {image: images.food19,},
-    {image: images.food20,}
+    { image: images.food16, },
+    { image: images.food17, },
+    { image: images.food18, },
+    { image: images.food19, },
+    { image: images.food20, }
 ]);
 
 const galleryImages2 = ref([
-    {image: images.food21,},
-    {image: images.food22,},
-    {image: images.food23,},
-    {image: images.food24,},
-    {image: images.food25,},
-    {image: images.food26,},
-    {image: images.food27,}
+    { image: images.food21, },
+    { image: images.food22, },
+    { image: images.food23, },
+    { image: images.food24, },
+    { image: images.food25, },
+    { image: images.food26, },
+    { image: images.food27, }
 ]);
 
 const galleryImages3 = ref([
-    {image: images.food28,},
-    {image: images.food29,},
-    {image: images.food30,},
-    {image: images.food31,},
-    {image: images.food32,}
+    { image: images.food28, },
+    { image: images.food29, },
+    { image: images.food30, },
+    { image: images.food31, },
+    { image: images.food32, }
 ]);
 
 const galleryImages4 = ref([
-    {image: images.food33,},
-    {image: images.food34,},
-    {image: images.food35,},
-    {image: images.food36,}
+    { image: images.food33, },
+    { image: images.food34, },
+    { image: images.food35, },
+    { image: images.food36, }
 ]);
 
 // 为每个画廊创建独立的状态
@@ -209,8 +219,8 @@ const getClientX = (e) => {
 // 开始拖拽
 const startDrag = (e, galleryId) => {
     const clientX = getClientX(e);
-    
-    switch(galleryId) {
+
+    switch (galleryId) {
         case 1:
             isDragging1.value = true;
             startX1.value = clientX;
@@ -242,8 +252,8 @@ const startDrag = (e, galleryId) => {
 // 处理拖拽
 const handleDrag = (e, galleryId) => {
     const clientX = getClientX(e);
-    
-    switch(galleryId) {
+
+    switch (galleryId) {
         case 1:
             if (!isDragging1.value) return;
             const diff1 = clientX - startX1.value;
@@ -253,7 +263,7 @@ const handleDrag = (e, galleryId) => {
             newPosition1 = Math.max(minPosition1, Math.min(maxPosition1, newPosition1));
             position1.value = newPosition1;
             break;
-            
+
         case 2:
             if (!isDragging2.value) return;
             const diff2 = clientX - startX2.value;
@@ -263,7 +273,7 @@ const handleDrag = (e, galleryId) => {
             newPosition2 = Math.max(minPosition2, Math.min(maxPosition2, newPosition2));
             position2.value = newPosition2;
             break;
-            
+
         case 3:
             if (!isDragging3.value) return;
             const diff3 = clientX - startX3.value;
@@ -273,7 +283,7 @@ const handleDrag = (e, galleryId) => {
             newPosition3 = Math.max(minPosition3, Math.min(maxPosition3, newPosition3));
             position3.value = newPosition3;
             break;
-            
+
         case 4:
             if (!isDragging4.value) return;
             const diff4 = clientX - startX4.value;
@@ -283,7 +293,7 @@ const handleDrag = (e, galleryId) => {
             newPosition4 = Math.max(minPosition4, Math.min(maxPosition4, newPosition4));
             position4.value = newPosition4;
             break;
-            
+
         case 5:
             if (!isDragging5.value) return;
             const diff5 = clientX - startX5.value;
@@ -298,7 +308,7 @@ const handleDrag = (e, galleryId) => {
 
 // 结束拖拽
 const endDrag = (e, galleryId) => {
-    switch(galleryId) {
+    switch (galleryId) {
         case 1:
             isDragging1.value = false;
             break;
@@ -324,25 +334,25 @@ const initContainers = () => {
         containerWidth1.value = container1.value.offsetWidth;
         trackWidth1.value = track1.value.scrollWidth;
     }
-    
+
     // 初始化第二个画廊
     if (container2.value && track2.value) {
         containerWidth2.value = container2.value.offsetWidth;
         trackWidth2.value = track2.value.scrollWidth;
     }
-    
+
     // 初始化第三个画廊
     if (container3.value && track3.value) {
         containerWidth3.value = container3.value.offsetWidth;
         trackWidth3.value = track3.value.scrollWidth;
     }
-    
+
     // 初始化第四个画廊
     if (container4.value && track4.value) {
         containerWidth4.value = container4.value.offsetWidth;
         trackWidth4.value = track4.value.scrollWidth;
     }
-    
+
     // 初始化第五个画廊
     if (container5.value && track5.value) {
         containerWidth5.value = container5.value.offsetWidth;
@@ -372,12 +382,12 @@ onMounted(() => {
 }
 
 .biaoti1 {
-    background-color: rgb(172,188,180);
+    background-color: rgb(172, 188, 180);
     color: black;
     display: block;
     width: fit-content;
     padding: 0 20px;
-    
+
 }
 
 .title-container {
@@ -393,6 +403,7 @@ onMounted(() => {
     align-items: baseline;
     width: 100%;
 }
+
 .container {
     max-width: 1200px;
     width: 100%;
