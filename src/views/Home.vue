@@ -6,7 +6,7 @@
     <!-- 顶部轮播图 -->
     <header>
       <div class="carousel-container">
-        <el-carousel :interval="3000" arrow="always" height="400px">
+        <el-carousel :interval="3000" arrow="always" height="500px">
           <el-carousel-item v-for="(item, index) in banners" :key="index">
             <img :src="item.imageUrl" alt="Banner" class="carousel-bg" />
             <div class="mask"></div>
@@ -17,7 +17,7 @@
             <div class="center-content">
               <img :src="images.mainLogo" class="center-logo" />
               <img :src="images.titleImg" class="center-img" />
-              <img :src="images.startBtn" class="start-btn" />
+              <img :src="images.startBtn" class="start-btn" style="margin-top: 50px;" />
             </div>
           </el-carousel-item>
         </el-carousel>
@@ -76,12 +76,48 @@
           自然景观基因、农业景观基因、景观人文基因、生态系统基因。</p>
         <img :src="images.digitalGeneMap" alt="农遗数字基因图谱" />
       </section>
-      <section class="agricultural-heritage-AI-intelligence"></section>
-      <section class="digital-cultural-creativity-library"></section>
-      <section class="new-team-of-agricultural-heritage"></section>
+      <section class="agricultural-heritage-AI-trip">
+        <h2>农遗智游</h2>
+        <p>“农遗智游”板块运用趣味性与知识性兼备的互动形式，推广与普及全球重要农业文化遗产知识。将丰富的农遗知识体系融入拼
+          图、解谜、策略规划等多元化的益智游戏之中。用户通过参与互动游戏环节，直观了解传统农耕技艺、特色农作物品种、可持续农
+          业生态系统以及深厚的农耕文化内涵。有效降低了知识获取的门槛，显著提升了学习的主动性与记忆留存率。</p>
+        <div class="jigsaw" style="background-color: white; border-radius: 20px;">
+          <img class="jigsaw-img" style="margin-top: 10px;" :src="images.puzzle" alt="" />
+          <div style="min-width: 1200px;">
+            <puzzle/>
+          </div>
+          
+        </div>
+        <div class="jigsaw">
+          <img class="jigsaw-img" :src="images.map" alt="" />
+          <div class="puzzle-container" >
+            <img :src="images.map1" alt=""  style="width: 100%;height: auto;"/>
+            <img :src="images.map2" alt=""  style="width: 100%;height: auto;"/>
+          </div>
+        </div>
+      </section>
+      <section class="digital-cultural-creativity">
+        <h2>农遗智创</h2>
+        <img :src="images.zhichuang" alt="" class="new-img" />
+      </section>
+      <section class="new-team-of-agricultural-heritage">
+        <h2>农遗潮品</h2>
+        <div style="height: 160px;">
+          <img :src="images.chaopin1" alt="" style="height: 100%;width: auto;" />
+        <img :src="images.chaopin2" alt="" style="height: 100%;width: auto;" />
+        </div>
+        <div style="height: 175px;">
+          <img :src="images.chaopin3" alt="" style="height: 100%;width: auto;" />
+        <img :src="images.chaopin4" alt="" style="height: 100%;width: auto;" />
+        </div>
+        
+        
+        <img :src="images.chaopin5" alt="" class="new-img" />
+      </section>
     </main>
 
     <PageFooter />
+    
   </div>
 </template>
 
@@ -90,6 +126,7 @@ import { ref } from 'vue'
 import Navbar from '@/components/Navbar.vue'
 import PageFooter from '@/components/PageFooter.vue'
 import * as images from '@/assets/index/image.js'
+import puzzle from '@/components/puzzle.vue'
 
 const banners = ref([
   { imageUrl: images.banner1 },
@@ -120,6 +157,13 @@ const items = [
   { title: "中国南方稻作梯田", image: images.g5, link: '#' },
   { title: "查看更多", image: images.more1, link: '/gene' }
 ]
+
+const createItems = [
+  { title: "农遗新生", image: images.nongyi, link: '/nongyi' },
+  { title: "农遗智创", image: images.aibg, link: '/aibg' },
+  { title: "农遗潮品", image: images.work1, link: '/work1' },
+  { title: "农遗智游", image: images.puzzle, link: '/puzzle' }
+]
 </script>
 
 <style scoped lang="scss">
@@ -138,10 +182,10 @@ header {
 
 .carousel-container {
   position: relative;
-  height: 400px;
+  height: 500px;
   overflow: hidden;
-  border-radius: 12px;
   margin-bottom: 40px;
+  
 }
 
 .carousel-bg {
@@ -280,6 +324,31 @@ section.about-agricultural-heritage {
   color: #444;
 }
 
+/* 卡片区域样式 */
+.section {
+  padding-bottom: 50px;
+  margin-bottom: -12px;
+}
+
+.section-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #1a1a1a;
+  position: relative;
+  padding-left: 15px;
+  display: flex;
+  align-items: center;
+}
+
+
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
 
 /* 专家卡片外部容器 */
 .experts-card {
@@ -397,7 +466,13 @@ section.about-agricultural-heritage {
   padding: 20px;
   color: #fff;
 }
-
+.new-img {
+  width: 100%;
+  height: auto;
+  max-width: 1200px;
+  margin: 0 20px;
+  gap: 0px 20px;
+}
 .agricultural-heritage-digital-gene-map {
   p {
     margin: 30px 100px;
@@ -411,6 +486,43 @@ section.about-agricultural-heritage {
     border-radius: 12px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   }
+}
+.agricultural-heritage-AI-trip{
+  background-color: #edeaea;
+  margin: 0px -100px ; /* 负边距抵消父容器的padding */
+  padding: 20px 100px; /* 保持内容的内边距 */
+  align-items: center;
+}
+.jigsaw {
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  margin: 40px 0;
+  align-items: flex-start;
+}
+.jigsaw-img {
+  width: auto;
+  height: 40px;
+  margin-bottom: 20px;
+
+}
+.puzzle-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-left:  70px ;
+}
+.puzzle-container img {
+  width: 100%;
+  height: auto;
+  
+}
+.new-team-of-agricultural-heritage{
+  margin: 50px 0px;
+}
+.digital-cultural-creativity{
+  margin: 50px 0px;
+  text-align: center;
 }
 
 /* 修复文字区域出现 I 型光标的问题 */

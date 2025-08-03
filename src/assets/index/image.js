@@ -32,6 +32,31 @@ import startBtn from '../组件 10 – 1.png'
 //数字基因图谱
 import digitalGeneMap from '../数字基因.png'
 
+//农遗智游.拼图
+import puzzle from '../拼图.png'
+import puzzle_z from '../拼图2.png'
+import puzzle1 from '../puzzle1.png'
+import puzzle2 from '../puzzle2.png'
+import puzzle3 from '../puzzle3.png'
+import puzzle4 from '../puzzle4.png'
+import puzzle5 from '../puzzle5.png'
+import puzzle6 from '../puzzle6.png'
+
+
+//农遗智游.地图
+import map from '../map.png'
+import map1 from '../map1.png'
+import map2 from '../map2.png'
+
+//农遗智创/潮品
+import zhichuang from '../荻港特色IP.png'
+import chaopin from '../文创产品.png'
+import chaopin1 from '../文创产品1.png'
+import chaopin2 from '../文创产品2.png'
+import chaopin3 from '../文创产品3.png'
+import chaopin4 from '../文创产品4.png'
+import chaopin5 from '../文创产品5.png'
+
 //智创
 import nongyi from '../农遗新生.png' 
 
@@ -147,5 +172,8 @@ export {
   food21, food22, food23, food24,food25, food26, food27,
   food28, food29, food30, food31, food32,
   food33, food34, food35, food36,
-  aibg, work1, work2, work3, work4, work5, work6, work7
+  aibg, work1, work2, work3, work4, work5, work6, work7,
+  puzzle, puzzle_z, puzzle1, puzzle2, puzzle3, puzzle4, puzzle5, puzzle6,
+  map, map1, map2,
+  zhichuang, chaopin, chaopin1, chaopin2, chaopin3, chaopin4, chaopin5
 }
