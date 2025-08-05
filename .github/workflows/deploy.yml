@@ -10,33 +10,36 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. 拉代码
+      # 1. 拉取代码
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # 2. 准备 Node.js 环境
+      # 2. 设置 Node.js 版本
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "18"
+          node-version: "18" # 可根据项目需要调整
 
-      # 3. 安装项目依赖
+      # 3. 安装依赖
       - name: Install dependencies
         run: npm install
 
-      # 4. 构建前端项目
+      # 4. 构建项目
       - name: Build project
-        run: npm run build
+        run: npm run build # 确保 package.json 有 "build" 脚本，输出目录是 ./dist
 
-      # 5. 在当前项目目录临时安装最新版 CloudBase CLI（不写入 package.json）
+      # 5. 安装最新版 CloudBase CLI（本地安装，避免老版本污染）
       - name: Install CloudBase CLI locally
         run: npm install @cloudbase/cli@latest --no-save
 
-      # 6. 部署到 CloudBase 静态托管
+      # 6. 检查 CLI 版本（可选）
+      - name: Check CloudBase CLI version
+        run: ./node_modules/.bin/tcb --version
+
+      # 7. 使用最新版 CLI 执行部署（注意路径）
       - name: Deploy to CloudBase Static Hosting
         env:
           TCB_SECRET_ID: ${{ secrets.TCB_SECRET_ID }}
           TCB_SECRET_KEY: ${{ secrets.TCB_SECRET_KEY }}
         run: |
-          # 使用 npx tcb（CLI 最新版）执行部署，支持 --containerPath
-          npx tcb hosting deploy ./dist --envId ${{ secrets.TCB_ENV_ID }} --containerPath /
+          ./node_modules/.bin/tcb hosting deploy ./dist --envId ${{ secrets.TCB_ENV_ID }} --containerPath /
