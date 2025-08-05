@@ -27,6 +27,9 @@ jobs:
       - name: Install CloudBase CLI
         run: npm install -g @cloudbase/cli
 
+      - name: tcb login --apiKeyId xxx --apiKey xxx
+        run: tcb login --apiKeyId ${{ secrets.TCB_SECRET_ID }} --apiKey ${{ secrets.TCB_SECRET_KEY }}
+
       - name: Deploy to CloudBase Static Hosting
         env:
           # TCB_SECRET_ID和TCB_SECRET_KEY会自动被CLI识别
