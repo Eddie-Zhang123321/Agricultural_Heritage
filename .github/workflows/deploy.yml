@@ -33,4 +33,5 @@ jobs:
           TCB_SECRET_ID: ${{ secrets.TCB_SECRET_ID }}
           TCB_SECRET_KEY: ${{ secrets.TCB_SECRET_KEY }}
         run: |
+          tcb login --apiKeyId AKIDcR5awPkuvldP0Tk2DD2eIySkqkRzd8Ug --apiKey 87yhEyiJm3A7sRnxviO9pMjwzwjS8iLs
           tcb hosting deploy ./dist --envId ${{ secrets.TCB_ENV_ID }}
