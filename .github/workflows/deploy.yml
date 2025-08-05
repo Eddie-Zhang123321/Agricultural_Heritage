@@ -1,0 +1,36 @@
+name: Deploy to CloudBase Static Hosting
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18" # 根据您的项目需求选择Node.js版本
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build project
+        run: npm run build # 替换为您的项目构建命令
+
+      - name: Install CloudBase CLI
+        run: npm install -g @cloudbase/cli
+
+      - name: Deploy to CloudBase Static Hosting
+        env:
+          # TCB_SECRET_ID和TCB_SECRET_KEY会自动被CLI识别
+          TCB_SECRET_ID: ${{ secrets.TCB_SECRET_ID }}
+          TCB_SECRET_KEY: ${{ secrets.TCB_SECRET_KEY }}
+        run: |
+          tcb hosting deploy ./dist --envId ${{ secrets.TCB_ENV_ID }} --containerPath / # 替换 ./dist 为您的构建输出目录
