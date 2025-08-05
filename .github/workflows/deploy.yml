@@ -33,4 +33,4 @@ jobs:
           TCB_SECRET_ID: ${{ secrets.TCB_SECRET_ID }}
           TCB_SECRET_KEY: ${{ secrets.TCB_SECRET_KEY }}
         run: |
-          tcb hosting deploy ./dist --envId ${{ secrets.TCB_ENV_ID }} --targetPath / # 替换 ./dist 为您的构建输出目录
+          tcb hosting deploy ./dist --envId ${{ secrets.TCB_ENV_ID }}
