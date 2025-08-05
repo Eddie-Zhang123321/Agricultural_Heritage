@@ -3,7 +3,7 @@ name: Deploy to CloudBase Static Hosting
 on:
   push:
     branches:
-      - master # 或 master，根据您的主分支名称
+      - master # 如果你的主分支叫 main，请改为 main
 
 jobs:
   build-and-deploy:
@@ -16,22 +16,25 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "18" # 根据您的项目需求选择Node.js版本
+          node-version: "18" # 按需修改 Node 版本
 
       - name: Install dependencies
         run: npm install
 
       - name: Build project
-        run: npm run build # 替换为您的项目构建命令
+        run: npm run build # 如果你使用 Vue 项目，就默认用这个
 
       - name: Install CloudBase CLI
         run: npm install -g @cloudbase/cli
 
       - name: Deploy to CloudBase Static Hosting
+        shell: bash
         env:
-          # TCB_SECRET_ID和TCB_SECRET_KEY会自动被CLI识别
           TCB_SECRET_ID: ${{ secrets.TCB_SECRET_ID }}
           TCB_SECRET_KEY: ${{ secrets.TCB_SECRET_KEY }}
+          TCB_ENV_ID: ${{ secrets.TCB_ENV_ID }}
+          SUPER_SECRET: ${{ secrets.SuperSecret }} # 示例：如果你还有额外 secret
         run: |
-          tcb login --apiKeyId AKIDcR5awPkuvldP0Tk2DD2eIySkqkRzd8Ug --apiKey 87yhEyiJm3A7sRnxviO9pMjwzwjS8iLs
-          tcb hosting deploy ./dist --envId ${{ secrets.TCB_ENV_ID }}
+          echo "开始部署..."
+          echo "保密信息：$SUPER_SECRET"
+          tcb hosting deploy ./dist --envId "$TCB_ENV_ID"
