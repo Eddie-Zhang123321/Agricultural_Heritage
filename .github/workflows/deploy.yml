@@ -10,26 +10,33 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # 1. 拉代码
       - name: Checkout code
         uses: actions/checkout@v4
 
+      # 2. 准备 Node.js 环境
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "18" # 根据您的项目需求选择Node.js版本
+          node-version: "18"
 
+      # 3. 安装项目依赖
       - name: Install dependencies
         run: npm install
 
+      # 4. 构建前端项目
       - name: Build project
-        run: npm run build # 替换为您的项目构建命令
+        run: npm run build
 
-      - name: Install latest CloudBase CLI
-        run: npm install -g @cloudbase/cli@latest
+      # 5. 在当前项目目录临时安装最新版 CloudBase CLI（不写入 package.json）
+      - name: Install CloudBase CLI locally
+        run: npm install @cloudbase/cli@latest --no-save
 
-      - name: Deploy to CloudBase Static Hosting # ← 注意这里对齐
+      # 6. 部署到 CloudBase 静态托管
+      - name: Deploy to CloudBase Static Hosting
         env:
           TCB_SECRET_ID: ${{ secrets.TCB_SECRET_ID }}
           TCB_SECRET_KEY: ${{ secrets.TCB_SECRET_KEY }}
         run: |
-          npx @cloudbase/cli@latest hosting deploy ./dist --envId ${{ secrets.TCB_ENV_ID }} --containerPath /
+          # 使用 npx tcb（CLI 最新版）执行部署，支持 --containerPath
+          npx tcb hosting deploy ./dist --envId ${{ secrets.TCB_ENV_ID }} --containerPath /
