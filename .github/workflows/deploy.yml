@@ -27,10 +27,9 @@ jobs:
       - name: Install latest CloudBase CLI
         run: npm install -g @cloudbase/cli@latest
 
-      - name: Deploy to CloudBase Static Hosting
+      - name: Deploy to CloudBase Static Hosting # ← 注意这里对齐
         env:
-          # TCB_SECRET_ID和TCB_SECRET_KEY会自动被CLI识别
           TCB_SECRET_ID: ${{ secrets.TCB_SECRET_ID }}
           TCB_SECRET_KEY: ${{ secrets.TCB_SECRET_KEY }}
         run: |
-          tcb hosting deploy ./dist --envId ${{ secrets.TCB_ENV_ID }} --containerPath / # 替换 ./dist 为您的构建输出目录
+          npx @cloudbase/cli@latest hosting deploy ./dist --envId ${{ secrets.TCB_ENV_ID }} --containerPath /
