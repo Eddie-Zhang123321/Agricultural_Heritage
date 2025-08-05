@@ -5,12 +5,12 @@
       <!-- 左侧 logo 区域 -->
       <el-menu-item index="0" class="logo-container">
         <img src="../assets/logo.png" alt="Logo" class="logo-img" />
-        <span class="logo-text">农遗探元</span>
+        <span class="logo-text">数智农遗</span>
       </el-menu-item>
 
       <!-- 中间菜单项 -->
       <el-menu-item index="1">农遗数字基因</el-menu-item>
-      <el-menu-item index="2">农遗智游</el-menu-item>
+      <el-menu-item index="2">农遗工具箱</el-menu-item>
       <el-menu-item index="3">农遗AI智创</el-menu-item>
       <el-menu-item index="4">农遗素材库</el-menu-item>
 
@@ -43,7 +43,9 @@ export default {
         case '/gene':
           return '1'; // 农遗数字基因
         case '/material':
-          return '4'
+          return '4'; // 农遗素材库
+        case '/toolbox':
+          return '2'; // 农遗工具箱
         // 其他路由...
         default:
           return '1'; // 默认选中第一个
@@ -63,6 +65,9 @@ export default {
       }
       if (key === '1') {
         this.$router.push('/gene');
+      }
+      if (key === '2') {
+        this.$router.push('/toolbox');
       }
     }
   }

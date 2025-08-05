@@ -5,6 +5,7 @@ import Material from '../views/Material.vue'
 import Create from '../views/Create.vue'
 import Gene from '../views/gene.vue'
 import sangjiyutang from '../views/sangjiyutang.vue'
+import toolbox from '../views/toolbox.vue'
 import { pa } from 'element-plus/es/locales.mjs'
 
 const routes = [
@@ -38,6 +39,12 @@ const routes = [
     path:'/sangjiyutang',
     name: '桑基鱼塘',
     component: sangjiyutang
+  }
+  ,
+  { 
+    path: '/toolbox',
+    name: '农遗工具箱',
+    component: toolbox
   }
 
 ]
