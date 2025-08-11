@@ -21,10 +21,14 @@
                 <h2 class="biaoti">粮食和生计安全</h2>
                 <div class="">
                     <main class="card">
-                        <div class="gallery-container" ref="container1" @mousedown="(e) => startDrag(e, 1)"
-                            @touchstart.passive="(e) => startDrag(e, 1)" @mousemove="(e) => handleDrag(e, 1)"
-                            @touchmove="(e) => handleDrag(e, 1)" @mouseup="(e) => endDrag(e, 1)"
-                            @mouseleave="(e) => endDrag(e, 1)" @touchend="(e) => endDrag(e, 1)">
+                        <div class="gallery-container" ref="container1" 
+                            @mousedown="(e) => startDrag(e, 1)"
+                            @touchstart.passive="(e) => startDrag(e, 1)" 
+                            @mousemove="(e) => handleDrag(e, 1)"
+                            @touchmove.passive="(e) => handleDrag(e, 1)" 
+                            @mouseup="(e) => endDrag(e, 1)"
+                            @mouseleave="(e) => endDrag(e, 1)" 
+                            @touchend="(e) => endDrag(e, 1)">
                             <div class="gallery-track" ref="track1"
                                 :style="{ transform: `translateX(${position1}px)` }">
                                 <div v-for="(item, index) in galleryImages" :key="index" class="gallery-item">
@@ -39,10 +43,14 @@
                 <h2 class="biaoti">当地和传统知识系统</h2>
                 <div class="">
                     <main class="card">
-                        <div class="gallery-container" ref="container2" @mousedown="(e) => startDrag(e, 2)"
-                            @touchstart.passive="(e) => startDrag(e, 2)" @mousemove="(e) => handleDrag(e, 2)"
-                            @touchmove="(e) => handleDrag(e, 2)" @mouseup="(e) => endDrag(e, 2)"
-                            @mouseleave="(e) => endDrag(e, 2)" @touchend="(e) => endDrag(e, 2)">
+                        <div class="gallery-container" ref="container2" 
+                            @mousedown="(e) => startDrag(e, 2)"
+                            @touchstart.passive="(e) => startDrag(e, 2)" 
+                            @mousemove="(e) => handleDrag(e, 2)"
+                            @touchmove.passive="(e) => handleDrag(e, 2)" 
+                            @mouseup="(e) => endDrag(e, 2)"
+                            @mouseleave="(e) => endDrag(e, 2)" 
+                            @touchend="(e) => endDrag(e, 2)">
                             <div class="gallery-track" ref="track2"
                                 :style="{ transform: `translateX(${position2}px)` }">
                                 <div v-for="(item, index) in galleryImages1" :key="index" class="gallery-item">
@@ -57,10 +65,14 @@
                 <h2 class="biaoti">文化、价值体系和社会组织</h2>
                 <div class="">
                     <main class="card">
-                        <div class="gallery-container" ref="container3" @mousedown="(e) => startDrag(e, 3)"
-                            @touchstart.passive="(e) => startDrag(e, 3)" @mousemove="(e) => handleDrag(e, 3)"
-                            @touchmove="(e) => handleDrag(e, 3)" @mouseup="(e) => endDrag(e, 3)"
-                            @mouseleave="(e) => endDrag(e, 3)" @touchend="(e) => endDrag(e, 3)">
+                        <div class="gallery-container" ref="container3" 
+                            @mousedown="(e) => startDrag(e, 3)"
+                            @touchstart.passive="(e) => startDrag(e, 3)" 
+                            @mousemove="(e) => handleDrag(e, 3)"
+                            @touchmove.passive="(e) => handleDrag(e, 3)" 
+                            @mouseup="(e) => endDrag(e, 3)"
+                            @mouseleave="(e) => endDrag(e, 3)" 
+                            @touchend="(e) => endDrag(e, 3)">
                             <div class="gallery-track" ref="track3"
                                 :style="{ transform: `translateX(${position3}px)` }">
                                 <div v-for="(item, index) in galleryImages2" :key="index" class="gallery-item">
@@ -75,10 +87,14 @@
                 <h2 class="biaoti">景观风貌特征</h2>
                 <div class="">
                     <main class="card">
-                        <div class="gallery-container" ref="container4" @mousedown="(e) => startDrag(e, 4)"
-                            @touchstart.passive="(e) => startDrag(e, 4)" @mousemove="(e) => handleDrag(e, 4)"
-                            @touchmove="(e) => handleDrag(e, 4)" @mouseup="(e) => endDrag(e, 4)"
-                            @mouseleave="(e) => endDrag(e, 4)" @touchend="(e) => endDrag(e, 4)">
+                        <div class="gallery-container" ref="container4" 
+                            @mousedown="(e) => startDrag(e, 4)"
+                            @touchstart.passive="(e) => startDrag(e, 4)" 
+                            @mousemove="(e) => handleDrag(e, 4)"
+                            @touchmove.passive="(e) => handleDrag(e, 4)" 
+                            @mouseup="(e) => endDrag(e, 4)"
+                            @mouseleave="(e) => endDrag(e, 4)" 
+                            @touchend="(e) => endDrag(e, 4)">
                             <div class="gallery-track" ref="track4"
                                 :style="{ transform: `translateX(${position4}px)` }">
                                 <div v-for="(item, index) in galleryImages3" :key="index" class="gallery-item">
@@ -93,10 +109,14 @@
                 <h2 class="biaoti">农业生物多样性</h2>
                 <div class="">
                     <main class="card">
-                        <div class="gallery-container" ref="container5" @mousedown="(e) => startDrag(e, 5)"
-                            @touchstart.passive="(e) => startDrag(e, 5)" @mousemove="(e) => handleDrag(e, 5)"
-                            @touchmove="(e) => handleDrag(e, 5)" @mouseup="(e) => endDrag(e, 5)"
-                            @mouseleave="(e) => endDrag(e, 5)" @touchend="(e) => endDrag(e, 5)">
+                        <div class="gallery-container" ref="container5" 
+                            @mousedown="(e) => startDrag(e, 5)"
+                            @touchstart.passive="(e) => startDrag(e, 5)" 
+                            @mousemove="(e) => handleDrag(e, 5)"
+                            @touchmove.passive="(e) => handleDrag(e, 5)" 
+                            @mouseup="(e) => endDrag(e, 5)"
+                            @mouseleave="(e) => endDrag(e, 5)" 
+                            @touchend="(e) => endDrag(e, 5)">
                             <div class="gallery-track" ref="track5"
                                 :style="{ transform: `translateX(${position5}px)` }">
                                 <div v-for="(item, index) in galleryImages4" :key="index" class="gallery-item">
@@ -117,7 +137,7 @@
 import Navbar from '../components/Navbar.vue';
 import PageFooter from '../components/PageFooter.vue';
 import * as images from '@/assets/index/image.js'
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, nextTick } from 'vue'
 
 // 图片数据
 const galleryImages = ref([
@@ -218,6 +238,7 @@ const getClientX = (e) => {
 
 // 开始拖拽
 const startDrag = (e, galleryId) => {
+    e.preventDefault(); // 添加这行防止默认行为
     const clientX = getClientX(e);
 
     switch (galleryId) {
@@ -251,6 +272,7 @@ const startDrag = (e, galleryId) => {
 
 // 处理拖拽
 const handleDrag = (e, galleryId) => {
+    e.preventDefault(); // 添加这行防止默认行为
     const clientX = getClientX(e);
 
     switch (galleryId) {
@@ -363,7 +385,9 @@ const initContainers = () => {
 // 生命周期钩子
 onMounted(() => {
     window.addEventListener('resize', initContainers);
-    initContainers();
+    nextTick(() => {
+        initContainers();
+    });
 });
 </script>
 
@@ -455,7 +479,6 @@ onMounted(() => {
     width: 100%;
     height: 100%;
     display: block;
-    object-fit: fill;
     pointer-events: none;
 }
 </style>

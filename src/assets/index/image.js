@@ -4,6 +4,7 @@
 import banner1 from '../banner1.png'
 import banner2 from '../banner1.png'
 import banner3 from '../banner1.png'
+import bannerVideo from '../video/主页视频.mp4'
 
 // 背景图
 import bg from '../矩形 1460.png'
@@ -30,7 +31,7 @@ import titleImg from '../组件 3 – 1.png'
 import startBtn from '../组件 10 – 1.png'
 
 //数字基因图谱
-import digitalGeneMap from '../数字基因.png'
+import digitalGeneMap from '../数字基因.jpg'
 
 //农遗智游.拼图
 import puzzle from '../拼图.png'
@@ -59,6 +60,12 @@ import chaopin5 from '../文创产品5.png'
 
 //智创
 import nongyi from '../农遗新生.png' 
+//素材库新增
+import wenyang from '../wenyang.png'
+import wenyang1 from '../wenyang1.png'
+import wenyang2 from '../wenyang2.png'
+import wenyang3 from '../wenyang3.png'
+import wenyang4 from '../wenyang4.jpg'
 
 //新生 探元
 import ty1 from '../ty1.png'
@@ -161,7 +168,7 @@ import tool3 from '../tool3.png'
 import tool4 from '../tool4.png'
 import tool5 from '../tool5.png'
 import tool6 from '../tool6.png'
-
+import jiemi3 from '../解密3.png'
 export {
   banner1, banner2, banner3,
   bg,
@@ -185,5 +192,6 @@ export {
   puzzle, puzzle_z, puzzle1, puzzle2, puzzle3, puzzle4, puzzle5, puzzle6,
   map, map1, map2,
   zhichuang, chaopin, chaopin1, chaopin2, chaopin3, chaopin4, chaopin5,
-  tool1, tool2, tool3, tool4, tool5, tool6
+  tool1, tool2, tool3, tool4, tool5, tool6,jiemi3,
+  wenyang,bannerVideo,wenyang1,wenyang2,wenyang3,wenyang4
 }

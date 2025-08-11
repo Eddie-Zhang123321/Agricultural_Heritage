@@ -24,7 +24,7 @@
   <div class="head-box">
     <hr class="head-hr" style="color: rgb(180, 195, 191);" />
     <div class="head" style="background-color: rgb(180, 195, 191);">
-      <b style="color: white">项目展示</b>
+      <b style="color: white;font-size: large;">项目展示</b>
     </div>
     <hr class="head-hr" style="color: rgb(180, 195, 191);" />
   </div>
@@ -45,8 +45,14 @@
       </div>
     </div>
   </div>
-
-  <puzzle />
+  <div class="">
+    <div class="biaoti" style="background-color:rgb(246, 240, 225);"><p style="color: black;">小程序·益智拼图</p></div>
+    <puzzle />
+  </div>
+  <div class="jiemi3">
+    <div class="biaoti" style="background-color: white;"><p style="color: black;">轻解谜·狄港寻迹</p></div>
+    <img :src="images.jiemi3" alt="" style="max-width: 1200px;height: auto;">
+  </div>
   <PageFooter />
 </template>
 
@@ -219,5 +225,21 @@ const toolboxItems = ref([
   object-fit: cover;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+.biaoti{
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  border-radius:23px;
+  border: 2px solid black;
+  width: 200px;
+  height:50px;
+  line-height: 50px;
+  margin-left: 150px;
+}
+.jiemi3{
+  text-align: center;
+  background-color: rgb(246, 240, 225);
+  padding: 20px 0px;
 }
 </style>

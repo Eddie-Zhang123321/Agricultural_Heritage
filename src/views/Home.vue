@@ -6,10 +6,29 @@
     <!-- 顶部轮播图 -->
     <header>
       <div class="carousel-container">
-        <el-carousel :interval="3000" arrow="always" height="500px">
+        <el-carousel 
+          :interval="carouselInterval" 
+          arrow="always" 
+          height="700px"
+          ref="carouselRef"
+          @change="handleCarouselChange">
           <el-carousel-item v-for="(item, index) in banners" :key="index">
-            <img :src="item.imageUrl" alt="Banner" class="carousel-bg" />
-            <div class="mask"></div>
+            <template v-if="item.type === 'video'">
+             <video 
+                :src="item.videoUrl" 
+                class="carousel-bg" 
+                autoplay 
+                muted 
+                playsinline
+                @ended="onVideoEnded"
+                @play="onVideoPlay"
+                ref="videoRefs"
+              ></video>
+              
+            </template>
+            <template v-else>
+              <img :src="item.imageUrl" alt="Banner" class="carousel-bg" />
+              <div class="mask"></div>
             <div class="corner-icon">
               <img :src="images.locationIcon" class="icon-img" />
               <img :src="images.locationText" class="location" />
@@ -19,6 +38,8 @@
               <img :src="images.titleImg" class="center-img" />
               <img :src="images.startBtn" class="start-btn" style="margin-top: 50px;" />
             </div>
+            </template>
+            
           </el-carousel-item>
         </el-carousel>
       </div>
@@ -35,7 +56,7 @@
             识、宝贵的文化和景观，由农民、牧民、渔民和森林居民以有助于他们生计和粮食安全的方式进行可持续管理。截至2025年，中国
             全球重要农业文化遗产增至25项，数量保持世界首位。</p>
 
-
+          <div class="beijingtu">
           <!-- 专家介绍 -->
           <el-card class="experts-card" shadow="always">
             <el-row :gutter="0">
@@ -66,6 +87,7 @@
               </router-link>
             </el-col>
           </el-row>
+          </div>
         </div>
       </section>
 
@@ -84,15 +106,15 @@
         <div class="jigsaw" style="background-color: white; border-radius: 20px;">
           <img class="jigsaw-img" style="margin-top: 10px;" :src="images.puzzle" alt="" />
           <div style="min-width: 1200px;">
-            <puzzle/>
+            <puzzle />
           </div>
-          
+
         </div>
         <div class="jigsaw">
           <img class="jigsaw-img" :src="images.map" alt="" />
-          <div class="puzzle-container" >
-            <img :src="images.map1" alt=""  style="width: 100%;height: auto;"/>
-            <img :src="images.map2" alt=""  style="width: 100%;height: auto;"/>
+          <div class="puzzle-container">
+            <img :src="images.map1" alt="" style="width: 100%;height: auto;" />
+            <img :src="images.map2" alt="" style="width: 100%;height: auto;" />
           </div>
         </div>
       </section>
@@ -104,34 +126,74 @@
         <h2>农遗潮品</h2>
         <div style="height: 160px;">
           <img :src="images.chaopin1" alt="" style="height: 100%;width: auto;" />
-        <img :src="images.chaopin2" alt="" style="height: 100%;width: auto;" />
+          <img :src="images.chaopin2" alt="" style="height: 100%;width: auto;" />
         </div>
         <div style="height: 175px;">
           <img :src="images.chaopin3" alt="" style="height: 100%;width: auto;" />
-        <img :src="images.chaopin4" alt="" style="height: 100%;width: auto;" />
+          <img :src="images.chaopin4" alt="" style="height: 100%;width: auto;" />
         </div>
-        
-        
+
+
         <img :src="images.chaopin5" alt="" class="new-img" />
       </section>
     </main>
 
     <PageFooter />
-    
+
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, nextTick } from 'vue'
 import Navbar from '@/components/Navbar.vue'
 import PageFooter from '@/components/PageFooter.vue'
 import * as images from '@/assets/index/image.js'
 import puzzle from '@/components/puzzle.vue'
 
+const carouselRef = ref(null)
+const videoRefs = ref([])
+const isVideoPlaying = ref(false)
+const carouselInterval = ref(3000) // 使用响应式数据控制轮播间隔
+
+const handleCarouselChange = (currentIndex) => {
+  // 当轮播图切换时，如果之前有视频在播放，需要暂停它
+  const prevVideo = videoRefs.value.find((video, index) => index !== currentIndex && video);
+  if (prevVideo) {
+    prevVideo.pause();
+    isVideoPlaying.value = false;
+  }
+  
+  // 如果当前是视频项，禁用自动播放
+  if (banners.value[currentIndex] && banners.value[currentIndex].type === 'video') {
+    carouselInterval.value = 0; // 禁用自动播放
+  } else {
+    carouselInterval.value = 3000; // 恢复自动播放
+  }
+}
+
+const onVideoPlay = () => {
+  // 视频开始播放时，禁用轮播图自动播放
+  isVideoPlaying.value = true;
+  carouselInterval.value = 0;
+}
+
+const onVideoEnded = () => {
+  // 视频播放结束后，手动切换到下一张，并恢复轮播图自动播放
+  isVideoPlaying.value = false;
+  carouselInterval.value = 3000;
+  nextTick(() => {
+    if (carouselRef.value) {
+      carouselRef.value.next();
+    }
+  });
+}
+
 const banners = ref([
+  { type: 'video', videoUrl: images.bannerVideo },
   { imageUrl: images.banner1 },
   { imageUrl: images.banner2 },
   { imageUrl: images.banner3 }
+  
 ])
 
 const experts = [
@@ -182,15 +244,15 @@ header {
 
 .carousel-container {
   position: relative;
-  height: 500px;
+  height: 700px;
   overflow: hidden;
   margin-bottom: 40px;
-  
+
 }
 
 .carousel-bg {
-  width: 100%;
-  height: 100%;
+  width: auto;
+  height: 500px;
   object-fit: cover;
   position: absolute;
   top: 0;
@@ -270,27 +332,19 @@ main {
 }
 
 /* 背景图全覆盖 section */
-section.about-agricultural-heritage {
+.beijingtu{
   position: relative;
   background-image: url("@/assets/矩形 1460.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  padding: 60px 20px;
+  padding: 0px 20px;
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-  color: #fff;
+  
 }
 
 /* 背景遮罩增强文字可读性 */
-.about-agricultural-heritage::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.3);
-  z-index: 0;
-  border-radius: 12px;
-}
 
 .about-agricultural-heritage .container {
   position: relative;
@@ -298,7 +352,7 @@ section.about-agricultural-heritage {
   max-width: 1200px;
   margin: auto;
   padding: 20px;
-  color: #fff;
+
 }
 
 .intro-card {
@@ -341,14 +395,11 @@ section.about-agricultural-heritage {
   align-items: center;
 }
 
-
-
 .cards-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
 }
-
 
 /* 专家卡片外部容器 */
 .experts-card {
@@ -391,7 +442,6 @@ section.about-agricultural-heritage {
 .experts-card p:last-of-type {
   color: #000;
 }
-
 
 /* 遗产图卡样式 */
 .card-area .el-card {
@@ -466,6 +516,7 @@ section.about-agricultural-heritage {
   padding: 20px;
   color: #fff;
 }
+
 .new-img {
   width: 100%;
   height: auto;
@@ -473,6 +524,7 @@ section.about-agricultural-heritage {
   margin: 0 20px;
   gap: 0px 20px;
 }
+
 .agricultural-heritage-digital-gene-map {
   p {
     margin: 30px 100px;
@@ -487,12 +539,16 @@ section.about-agricultural-heritage {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   }
 }
-.agricultural-heritage-AI-trip{
+
+.agricultural-heritage-AI-trip {
   background-color: #edeaea;
-  margin: 0px -100px ; /* 负边距抵消父容器的padding */
-  padding: 20px 100px; /* 保持内容的内边距 */
+  margin: 0px -100px;
+  /* 负边距抵消父容器的padding */
+  padding: 20px 100px;
+  /* 保持内容的内边距 */
   align-items: center;
 }
+
 .jigsaw {
   max-width: 1200px;
   display: flex;
@@ -500,27 +556,32 @@ section.about-agricultural-heritage {
   margin: 40px 0;
   align-items: flex-start;
 }
+
 .jigsaw-img {
   width: auto;
   height: 40px;
   margin-bottom: 20px;
 
 }
+
 .puzzle-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 24px;
-  margin-left:  70px ;
+  margin-left: 70px;
 }
+
 .puzzle-container img {
   width: 100%;
   height: auto;
-  
+
 }
-.new-team-of-agricultural-heritage{
+
+.new-team-of-agricultural-heritage {
   margin: 50px 0px;
 }
-.digital-cultural-creativity{
+
+.digital-cultural-creativity {
   margin: 50px 0px;
   text-align: center;
 }
@@ -537,5 +598,18 @@ section.about-agricultural-heritage {
 .card-area .el-card,
 .card-area .el-card p {
   cursor: default;
+}
+.carousel-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+.carousel-bg[type="video"] {
+  object-fit: cover;
 }
 </style>

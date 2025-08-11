@@ -19,9 +19,18 @@
             </div>
         </div>
 
-
-        <div class="section">
-            <h2 class="section-title" style="margin-top: 20px; margin-left: 120px;">新生·探元</h2>
+        <div class="">
+        <div class="section-title" style="margin-top: 20px; margin-left: 120px;"><p>地理纹样素材</p></div>
+        <div class="wenyang">
+            <img :src="images.wenyang1" alt="">
+            <img :src="images.wenyang2" alt="">
+            <img :src="images.wenyang3" alt="">
+            <img :src="images.wenyang4" alt="">
+        </div>
+        <img :src="images.wenyang" alt="" style="max-width: 1200px;height: auto;">
+    </div>
+        <div class="section" style="padding-bottom: 0px;">
+            <h2 class="section-title" style="margin-top: 20px; margin-left: 120px;">插画风格素材</h2>
 
             <!-- 轮播图 -->
 
@@ -37,20 +46,11 @@
                 </el-carousel-item>
             </el-carousel>
 
-
-        </div>
-    </div>
-
-
-    <div style="margin: 120px; margin-bottom: 50px;margin-top:50px;">
-        <!-- 新生·主题 -->
-        <div class="section-title">新生·主题</div>
-
-
+            <div style="margin: 120px; margin-bottom: 50px;margin-top:0px;">
         <!-- 特色项目 -->
         <div class="exploration-grid">
             <div style="background-color:#D8E5DF; border-radius: 12px;">
-                <h3 class="hezi">舌尖上的农遗美食</h3>
+                <h3 class="hezi">粮食与生计农遗转译</h3>
                 <div class="zhuti">
 
                     <div class="card" v-for="(item, index) in featuredItems" :key="index">
@@ -65,7 +65,7 @@
                 </div>
             </div>
             <div style="background-color:#D8E0E6; border-radius: 12px;">
-                <h3 class="hezi">我的遗产映像</h3>
+                <h3 class="hezi">建筑风貌基因转译</h3>
                 <div class="zhuti">
 
                     <div class="card" v-for="(item, index) in featuredItemsa" :key="index">
@@ -80,7 +80,7 @@
                 </div>
             </div>
             <div style="background-color:#DFD9CA; border-radius: 12px;">
-                <h3 class="hezi">舌尖上的农遗美食</h3>
+                <h3 class="hezi">知识系统基因转译</h3>
                 <div class="zhuti">
 
                     <div class="card" v-for="(item, index) in featuredItemsb" :key="index">
@@ -95,7 +95,7 @@
                 </div>
             </div>
             <div style="background-color:#E3E3CC; border-radius: 12px;">
-                <h3 class="hezi">我的遗产映像</h3>
+                <h3 class="hezi">LOGO设计</h3>
                 <div class="zhuti">
 
                     <div class="card" v-for="(item, index) in featuredItemsc" :key="index">
@@ -113,6 +113,13 @@
 
         </div>
     </div>
+
+
+        </div>
+    </div>
+
+    
+    
 
     <!-- 线稿设色区域 -->
     <div style="background-color:antiquewhite;margin: 120px;margin-top: 50px;border-top-left-radius: 12px;
@@ -180,7 +187,7 @@ const featuredItemsa = ref([
     { title: '摇摇渔舟', image: images.yx2 }
 ])
 const featuredItemsb = ref([
-    { title: '农遗体验门票', image: images.yt1 },
+    { title: '农遗知识体验', image: images.yt1 },
     { title: '手工教具门票', image: images.yt2 }
 ])
 const featuredItemsc = ref([
@@ -254,7 +261,7 @@ body {
 }
 
 .section-title {
-    font-size: 24px;
+    font-size: 32px;
     margin-bottom: 20px;
     font-weight: bold;
     color: #1a1a1a;
@@ -381,7 +388,8 @@ body {
 
 
 .el-carousel {
-    margin-top: 20px;
+    padding: 50px 0px;
+    background-color: rgb(246, 240, 225);
 }
 
 .carousel-item {
@@ -566,5 +574,18 @@ body {
     margin-top: 20px;
     font-size: 22px;
 
+}
+.wenyang {
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 20px;
+}
+.wenyang img {
+    width: 100%;
+    height: 300px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 </style>
