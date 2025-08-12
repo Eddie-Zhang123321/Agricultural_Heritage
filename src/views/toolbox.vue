@@ -33,25 +33,47 @@
   </div>
   <!-- 小程序展示 -->
   <div class="mini-program-section">
-    <!-- 左侧 手机+文字 -->
+    <!-- 左侧 手机+视频 -->
     <div class="mini-left">
-      <img src="@/assets/蚕桑大亨/left.png" alt="演示视频" class="phone" />
+      <div class="phone-video-container">
+        <div class="screen">
+          <video autoplay loop muted playsinline class="demo-video">
+            <source src="@/assets/蚕桑大亨/demo-video.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <img src="@/assets/蚕桑大亨/phone-frame.png" class="phone-frame" alt="手机边框" />
+      </div>
       <img src="@/assets/蚕桑大亨/qrcode.png" alt="演示图片" class="code" />
     </div>
-    <!-- 右侧 8 张截图 -->
+
+    <!-- 右侧 说明文字 + 8 张截图 -->
     <div class="mini-right">
-      <div class="screenshot" v-for="(img, index) in imageList" :key="index">
-        <img :src="img" :alt="`截图${index + 1}`" />
+      <div class="description-box">
+        <p class="description-text">
+          <span class="highlight">电商</span> ● 电商消费深度绑定游戏，在趣味交互中自然转化消费行为，构建“寓教于购”的产业新生态
+        </p>
+        <p class="description-text">
+          <span class="highlight">游戏</span> ● 以桑基鱼塘生态循环为元素，进行游戏化虚拟模拟农场
+        </p>
+      </div>
+      <div class="screenshot-grid">
+        <div class="screenshot" v-for="(img, index) in imageList" :key="index">
+          <img :src="img" :alt="`截图${index + 1}`" />
+        </div>
       </div>
     </div>
   </div>
   <div class="">
-    <div class="biaoti" style="background-color:rgb(246, 240, 225);"><p style="color: black;">小程序·益智拼图</p></div>
+    <div class="biaoti" style="background-color: rgb(246, 240, 225);">
+      <p style="color: black;">小程序·益智拼图</p>
+    </div>
     <puzzle />
   </div>
   <div class="jiemi3">
-    <div class="biaoti" style="background-color: white;"><p style="color: black;">轻解谜·狄港寻迹</p></div>
-    <img :src="images.jiemi3" alt="" style="max-width: 1200px;height: auto;">
+    <div class="biaoti" style="background-color: white;">
+      <p style="color: black;">轻解谜·狄港寻迹</p>
+    </div>
+    <img :src="images.jiemi3" alt="" style="max-width: 1200px; height: auto;">
   </div>
   <PageFooter />
 </template>
@@ -146,100 +168,143 @@ const toolboxItems = ref([
 
 /* 小程序展示部分 */
 .mini {
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  gap: 40px;
   background-color: antiquewhite;
+  max-width: 1200px;
 }
 
 .mini-program-section {
   display: flex;
   align-items: center;
-  /* 垂直居中 */
   justify-content: space-between;
-  margin: 0px auto 40px;
-  gap: 60px;
+  margin: 0 auto 40px;
+  gap: 40px;
   background-color: antiquewhite;
+  max-width: 1200px;
 }
 
+/* 项目名称 */
 .project_name {
-  width: 10%;
+  width: auto;
+  height: 50px;
   display: block;
-  /* 已经有这个，但要确保它生效 */
   margin-left: 70px;
   margin-bottom: 0;
-  /* 去掉原来的 20px */
 }
-
 
 /* 左侧 */
 .mini-left {
-  width: 40%;
+  flex: 1;
+  max-width: 350px;
 }
 
+.phone-video-container {
+  position: relative;
+  --phone-w: 320px;
+  width: var(--phone-w);
+  aspect-ratio: 1 / 1;
+  margin: 0 auto;
+  isolation: isolate;
+}
 
+.screen {
+  position: absolute;
+  inset: 6% 29% 6% 29%;
+  overflow: hidden;
+  border-radius: 18px;
+  z-index: 1;
+}
 
-.phone {
+.demo-video {
   width: 100%;
-  height: 150%;
-  border-radius: 20px;
-  background: transparent;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.phone-frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  z-index: 2;
+  pointer-events: none;
 }
 
 .code {
   display: block;
-  width: 20%;
-  margin: 0px 0px 10px 60px;
-  border-radius: 50%;
-  background-color: transparent;
+  width: 100px;
+  margin-top: 10px;
 }
 
-.mini-text {
-  text-align: left;
-  font-size: 14px;
-  max-width: 300px;
-  line-height: 1.6;
-}
-
-.mini-text h3 {
-  font-size: 18px;
-  font-weight: bold;
-  margin: 12px 0 6px;
-  color: #333;
-}
-
-.mini-text p {
-  margin-bottom: 10px;
-  color: #555;
-}
-
-/* 右侧截图网格 */
+/* 右侧 */
 .mini-right {
   flex: 2;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   margin-right: 100px;
 }
 
-.mini-right img {
+.description-box {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.description-title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.description-text {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.highlight {
+  color: rgb(132, 170, 160);
+  font-weight: bold;
+}
+
+.screenshot-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.screenshot img {
   width: 80%;
   height: 90%;
   object-fit: cover;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
-.biaoti{
+
+.biaoti {
   text-align: center;
   font-size: 24px;
   font-weight: bold;
-  border-radius:23px;
+  border-radius: 23px;
   border: 2px solid black;
   width: 200px;
-  height:50px;
+  height: 50px;
   line-height: 50px;
   margin-left: 150px;
 }
-.jiemi3{
+
+.jiemi3 {
   text-align: center;
   background-color: rgb(246, 240, 225);
-  padding: 20px 0px;
+  padding: 20px 0;
 }
 </style>

@@ -67,7 +67,7 @@ const searchQuery2 = ref('');
 const activeTab = ref('poster');
 
 const gotoCoze = () => {
-    window.open('https://www.coze.cn/store/agent/7530074368895254571?bot_id=true', '_blank');
+    window.open('https://www.xfun.design/material', '_blank');
 };
 
 const Items = ref([
