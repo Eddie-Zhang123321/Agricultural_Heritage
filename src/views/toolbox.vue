@@ -6,7 +6,7 @@
     <div class="head-box">
       <hr class="head-hr" style="color: rgb(132, 170, 160);" />
       <div class="head" style="background-color: rgb(132, 170, 160);">
-        <b style="color: white;font-size: large;">农遗工具箱</b>
+        <p style="color: white;font-size: 28px;">农遗工具箱</p>
       </div>
       <hr class="head-hr" style="color: rgb(132, 170, 160);" />
     </div>
@@ -24,41 +24,34 @@
   <div class="head-box">
     <hr class="head-hr" style="color: rgb(180, 195, 191);" />
     <div class="head" style="background-color: rgb(180, 195, 191);">
-      <b style="color: white;font-size: large;">项目展示</b>
+      <p style="color: white;font-size: 28px;">项目展示</p>
     </div>
     <hr class="head-hr" style="color: rgb(180, 195, 191);" />
   </div>
+
+
   <div class="mini">
-    <img src="@/assets/蚕桑大亨/组 111.png" class="project_name" />
-  </div>
-  <!-- 小程序展示 -->
-  <div class="mini-program-section">
-    <!-- 左侧 手机+视频 -->
-    <div class="mini-left">
-      <div class="phone-video-container">
-        <div class="screen">
+    <div class="biaoti" style="background-color: white;">
+      <p style="color: black;">小程序·蚕桑大亨</p>
+    </div>
+    <div class="mini-program-section">
+      <!-- 左侧 手机+视频 -->
+      <div class="mini-left">
+        <div class="">
           <video autoplay loop muted playsinline class="demo-video">
             <source src="@/assets/蚕桑大亨/demo-video.mp4" type="video/mp4" />
           </video>
+          <img src="@/assets/蚕桑大亨/left.png" alt="演示图片" class="code" />
         </div>
-        <img src="@/assets/蚕桑大亨/phone-frame.png" class="phone-frame" alt="手机边框" />
+        <img src="@/assets/蚕桑大亨/qrcode.png" alt="演示图片" class="code1" />
       </div>
-      <img src="@/assets/蚕桑大亨/qrcode.png" alt="演示图片" class="code" />
-    </div>
 
-    <!-- 右侧 说明文字 + 8 张截图 -->
-    <div class="mini-right">
-      <div class="description-box">
-        <p class="description-text">
-          <span class="highlight">电商</span> ● 电商消费深度绑定游戏，在趣味交互中自然转化消费行为，构建“寓教于购”的产业新生态
-        </p>
-        <p class="description-text">
-          <span class="highlight">游戏</span> ● 以桑基鱼塘生态循环为元素，进行游戏化虚拟模拟农场
-        </p>
-      </div>
-      <div class="screenshot-grid">
-        <div class="screenshot" v-for="(img, index) in imageList" :key="index">
-          <img :src="img" :alt="`截图${index + 1}`" />
+      <!-- 右侧 说明文字 + 8 张截图 -->
+      <div class="mini-right">
+        <div class="screenshot-grid">
+          <div class="screenshot" v-for="(img, index) in imageList" :key="index">
+            <img :src="img" :alt="`截图${index + 1}`" />
+          </div>
         </div>
       </div>
     </div>
@@ -73,7 +66,7 @@
     <div class="biaoti" style="background-color: white;">
       <p style="color: black;">轻解谜·狄港寻迹</p>
     </div>
-    <img :src="images.jiemi3" alt="" style="max-width: 1200px; height: auto;">
+    <img :src="images.jiemi3" alt="" style="max-width: 1200px; height: auto; margin-top: 10px;">
   </div>
   <PageFooter />
 </template>
@@ -129,7 +122,7 @@ const toolboxItems = ref([
 
 .head-hr {
   width: 500px;
-  border-top: 3px solid;
+  border-top: 5px solid;
 }
 
 .card-link {
@@ -145,7 +138,7 @@ const toolboxItems = ref([
 .cards-container {
   margin: 100px;
   margin-top: 50px;
-  margin-bottom: 50px;
+  margin-bottom: 0px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
@@ -167,127 +160,64 @@ const toolboxItems = ref([
 }
 
 /* 小程序展示部分 */
-.mini {
-  align-items: center;
-  justify-content: space-between;
-  margin: 0 auto;
-  gap: 40px;
-  background-color: antiquewhite;
-  max-width: 1200px;
-}
 
+.mini{
+  background-color: rgb(246, 240, 225);
+  padding-top: 20px;
+  
+}
 .mini-program-section {
-  display: flex;
+  display: grid;
   align-items: center;
-  justify-content: space-between;
+  grid-template-columns: 5fr 7fr;
   margin: 0 auto 40px;
   gap: 40px;
-  background-color: antiquewhite;
   max-width: 1200px;
+  height: 700px
 }
 
-/* 项目名称 */
-.project_name {
-  width: auto;
-  height: 50px;
-  display: block;
-  margin-left: 70px;
-  margin-bottom: 0;
-}
-
-/* 左侧 */
 .mini-left {
-  flex: 1;
-  max-width: 350px;
-}
 
-.phone-video-container {
   position: relative;
-  --phone-w: 320px;
-  width: var(--phone-w);
-  aspect-ratio: 1 / 1;
-  margin: 0 auto;
-  isolation: isolate;
-}
-
-.screen {
-  position: absolute;
-  inset: 6% 29% 6% 29%;
-  overflow: hidden;
-  border-radius: 18px;
-  z-index: 1;
-}
-
-.demo-video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.phone-frame {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  z-index: 2;
-  pointer-events: none;
 }
 
 .code {
-  display: block;
+  width: auto;
+  height: 700px;
+  object-fit: cover;
+}
+
+.code1 {
+  position: absolute;
+  left: 0px;
+  top: 600px;
   width: 100px;
-  margin-top: 10px;
+  height: auto;
+}
+.demo-video {
+  position: absolute;
+  top: 16px;
+  left: 208px;
+  width: 246px;
+  height: auto;
+  border-radius: 30px;
+  object-fit: cover;
 }
 
 /* 右侧 */
-.mini-right {
-  flex: 2;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  margin-right: 100px;
-}
-
-.description-box {
-  background-color: rgba(255, 255, 255, 0.9);
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.description-title {
-  font-size: 28px;
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 15px;
-}
-
-.description-text {
-  font-size: 16px;
-  color: #555;
-  line-height: 1.6;
-  margin-bottom: 10px;
-}
-
-.highlight {
-  color: rgb(132, 170, 160);
-  font-weight: bold;
-}
+.mini-right {}
 
 .screenshot-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
+  gap: 20px;
+  margin-bottom: 20px;
 }
 
 .screenshot img {
-  width: 80%;
-  height: 90%;
+  width: 100%;
+  height: auto;
   object-fit: cover;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .biaoti {

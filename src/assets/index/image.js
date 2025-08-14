@@ -160,6 +160,7 @@ import work4 from '../AI智创/明信片4.png'
 import work5 from '../AI智创/明信片5.png'
 import work6 from '../AI智创/明信片6.png'
 import work7 from '../AI智创/明信片7.png'
+import work8 from '../AI智创/明信片8.png'
 
 //农遗工具箱
 import tool1 from '../tool1.png'
@@ -188,7 +189,7 @@ export {
   food21, food22, food23, food24,food25, food26, food27,
   food28, food29, food30, food31, food32,
   food33, food34, food35, food36,
-  aibg, work1, work2, work3, work4, work5, work6, work7,
+  aibg, work1, work2, work3, work4, work5, work6, work7,work8,
   puzzle, puzzle_z, puzzle1, puzzle2, puzzle3, puzzle4, puzzle5, puzzle6,
   map, map1, map2,
   zhichuang, chaopin, chaopin1, chaopin2, chaopin3, chaopin4, chaopin5,

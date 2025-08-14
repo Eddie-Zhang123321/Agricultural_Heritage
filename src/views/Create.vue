@@ -4,8 +4,12 @@
         <Navbar />
         <main>
             <!-- AI智能创作区域 -->
-            <div class="creation-header">
-                <div class="section-title">AI智能创作</div>
+            <div class="head-box">
+                <hr class="head-hr" style="color: rgb(132, 170, 160);" />
+                <div class="head" style="background-color: rgb(132, 170, 160);">
+                    <span style="color: white;font-size: 28px;">AI智能创作</span>
+                </div>
+                <hr class="head-hr" style="color: rgb(132, 170, 160);" />
             </div>
             <div class="ai-creation" @click="gotoCoze">
 
@@ -21,21 +25,27 @@
                     <div class="search">
                         <div class="search-row">
                             <span class="user-label">用户</span>
-                            <el-input v-model="searchQuery1" placeholder="将创作需求输入框中（如 '设计某个元素包装海报'）" />
+                            <el-input class="shurukuang" v-model="searchQuery1" placeholder="将创作需求输入框中（如 '设计某个元素包装海报'）" />
                         </div>
                         <div class="search-row">
                             <span class="user-label">用户</span>
-                            <el-input v-model="searchQuery2" placeholder="继续优化 ..." />
+                            <el-input class="shurukuang" v-model="searchQuery2" placeholder="继续优化 ..." />
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- 作品展示区域 -->
-            <div class="products-section">
-                <div class="products-header">
-                    <div class="section-title">作品广场</div>
+
+            <div class="head-box" style="margin-top: 70px;">
+                <hr class="head-hr" style="color: rgb(180, 195, 191);" />
+                <div class="head" style="background-color: rgb(180, 195, 191);">
+                    <span style="color: white;font-size: 28px;">作品广场</span>
                 </div>
+                <hr class="head-hr" style="color: rgb(180, 195, 191);" />
+            </div>
+            <div class="products-section">
+
                 <div class="cards-container">
                     <div class="card" v-for="(item, index) in Items" :key="index">
                         <router-link :to="item.link" class="card-link">
@@ -77,7 +87,8 @@ const Items = ref([
     { image: images.work4, link: '' },
     { image: images.work5, link: '' },
     { image: images.work6, link: '' },
-    { image: images.work7, link: '' }
+    { image: images.work7, link: '' },
+    { image: images.work8, link: '' } 
 ]);
 </script>
 
@@ -123,6 +134,7 @@ main {
     align-items: flex-start;
     padding: 0 0 0 10px;
     cursor: pointer;
+   
 }
 
 .btn {
@@ -182,8 +194,8 @@ main {
 
 .user-label {
     padding: 6px 12px;
-    background: #e8f0ec;
-    color: #333;
+    background-color: rgb(132, 170, 160);
+    color: white;
     border-radius: 8px;
     font-weight: bold;
     white-space: nowrap;
@@ -193,25 +205,7 @@ main {
     flex: 1;
 }
 
-.products-section {
-    background: #fff;
-    margin-top: 40px;
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 
-    .section-title {
-        display: inline-block;
-        font-size: 20px;
-        font-weight: bold;
-        color: #4b6a5e;
-        background-color: #e0ece6;
-        padding: 4px 20px;
-        border-radius: 20px;
-        margin-left: 10px;
-        margin: 20px;
-    }
-}
 
 .cards-container {
     display: grid;
@@ -269,6 +263,27 @@ main {
     border-radius: 20px;
     font-weight: bold;
     border: none;
+}
+
+.head-box {
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 0;
+}
+
+.head {
+    width: 200px;
+    height: 50px;
+    border-radius: 20px;
+    text-align: center;
+    line-height: 50px;
+}
+
+.head-hr {
+    width: 500px;
+    border-top: 5px solid;
 }
 
 @media (max-width: 1024px) {
