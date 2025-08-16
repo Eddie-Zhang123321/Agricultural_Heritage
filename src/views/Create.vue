@@ -11,7 +11,7 @@
                 </div>
                 <hr class="head-hr" style="color: rgb(132, 170, 160);" />
             </div>
-            <div class="ai-creation" @click="gotoCoze">
+            <div class="ai-creation" @click="gotoXfun">
 
                 <div class="search-section">
                     <div class="btn">
@@ -25,7 +25,8 @@
                     <div class="search">
                         <div class="search-row">
                             <span class="user-label">用户</span>
-                            <el-input class="shurukuang" v-model="searchQuery1" placeholder="将创作需求输入框中（如 '设计某个元素包装海报'）" />
+                            <el-input class="shurukuang" v-model="searchQuery1"
+                                placeholder="将创作需求输入框中（如 '设计某个元素包装海报'）" />
                         </div>
                         <div class="search-row">
                             <span class="user-label">用户</span>
@@ -34,7 +35,7 @@
                     </div>
                 </div>
             </div>
-            <div class="">
+            <div class="" @click="gotoXfun">
                 <img :src="images.worknew1" alt="" style="width: 1200px; height: auto; margin-top: 60px;">
                 <img :src="images.worknew2" alt="" style="width: 1200px; height: auto; margin-top: 10px;">
                 <img :src="images.worknew3" alt="" style="width: 1200px; height: auto; margin-top: 10px;">
@@ -80,7 +81,7 @@ const searchQuery1 = ref('');
 const searchQuery2 = ref('');
 const activeTab = ref('poster');
 
-const gotoCoze = () => {
+const gotoXfun = () => {
     window.open('https://www.xfun.design/material', '_blank');
 };
 
@@ -92,7 +93,7 @@ const Items = ref([
     { image: images.work5, link: '' },
     { image: images.work6, link: '' },
     { image: images.work7, link: '' },
-    { image: images.work8, link: '' } 
+    { image: images.work8, link: '' }
 ]);
 </script>
 
@@ -138,7 +139,7 @@ main {
     align-items: flex-start;
     padding: 0 0 0 10px;
     cursor: pointer;
-   
+
 }
 
 .btn {

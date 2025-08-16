@@ -30,19 +30,19 @@
   </div>
   <section style="background-color: rgb(232, 236, 234);">
 
-  
-  <div class="" style="margin-bottom: 50px;padding-top: 20px;">
-    <div class="biaoti" style="background-color: white;width: 300px;">
-      <p style="color: black;">AI纹样·XFUN智能生成</p>
+
+    <div class="" style="margin-bottom: 50px;padding-top: 20px;" @click="gotoXfun">
+      <div class="biaoti" style="background-color: white;width: 300px;">
+        <p style="color: black;">AI纹样·XFUN智能生成</p>
+      </div>
+      <img :src="images.tool7" alt="" style="max-width: 1200px; height: auto; margin-top: 10px;">
     </div>
-    <img :src="images.tool7" alt="" style="max-width: 1200px; height: auto; margin-top: 10px;">
-  </div>
-  <div class="" style="padding-bottom: 50px;">
-    <div class="biaoti" style="background-color: white;width: 300px;">
-      <p style="color: black;">AI包装生成·XFUN智能生成</p>
+    <div class="" style="padding-bottom: 50px;" @click="gotoXfun">
+      <div class="biaoti" style="background-color: white;width: 300px;">
+        <p style="color: black;">AI包装生成·XFUN智能生成</p>
+      </div>
+      <img :src="images.tool8" alt="" style="max-width: 1200px; height: auto; margin-top: 10px;">
     </div>
-    <img :src="images.tool8" alt="" style="max-width: 1200px; height: auto; margin-top: 10px;">
-  </div>
   </section>
   <div class="mini">
     <div class="biaoti" style="background-color: white;">
@@ -94,7 +94,9 @@ import { ref } from 'vue';
 
 const imageModules = import.meta.glob('@/assets/蚕桑大亨/图像 *.png', { eager: true });
 const imageList = Object.values(imageModules).map(module => module.default);
-
+const gotoXfun = () => {
+  window.open('https://www.xfun.design/material', '_blank');
+};
 const toolboxItems = ref([
   { image: images.tool1, link: '/toolbox/tool1' },
   { image: images.tool2, link: '/toolbox/tool2' },
@@ -175,11 +177,12 @@ const toolboxItems = ref([
 
 /* 小程序展示部分 */
 
-.mini{
+.mini {
   background-color: rgb(246, 240, 225);
   padding-top: 20px;
-  
+
 }
+
 .mini-program-section {
   display: grid;
   align-items: center;
@@ -208,6 +211,7 @@ const toolboxItems = ref([
   width: 100px;
   height: auto;
 }
+
 .demo-video {
   position: absolute;
   top: 16px;
@@ -218,8 +222,7 @@ const toolboxItems = ref([
   object-fit: cover;
 }
 
-/* 右侧 */
-.mini-right {}
+
 
 .screenshot-grid {
   display: grid;
