@@ -161,6 +161,9 @@ import work5 from '../AI智创/明信片5.png'
 import work6 from '../AI智创/明信片6.png'
 import work7 from '../AI智创/明信片7.png'
 import work8 from '../AI智创/明信片8.png'
+import worknew1 from '../AI智创/createnew1.jpg'
+import worknew2 from '../AI智创/createnew2.png'
+import worknew3 from '../AI智创/createnew3.jpg'
 
 //农遗工具箱
 import tool1 from '../tool1.png'
@@ -170,6 +173,8 @@ import tool4 from '../tool4.png'
 import tool5 from '../tool5.png'
 import tool6 from '../tool6.png'
 import jiemi3 from '../解密3.png'
+import tool7 from '../toolboxnew1.png'
+import tool8 from '../toolboxnew2.png'
 export {
   banner1, banner2, banner3,
   bg,
@@ -189,10 +194,10 @@ export {
   food21, food22, food23, food24,food25, food26, food27,
   food28, food29, food30, food31, food32,
   food33, food34, food35, food36,
-  aibg, work1, work2, work3, work4, work5, work6, work7,work8,
+  aibg, work1, work2, work3, work4, work5, work6, work7,work8,worknew1,worknew2,worknew3,
   puzzle, puzzle_z, puzzle1, puzzle2, puzzle3, puzzle4, puzzle5, puzzle6,
   map, map1, map2,
   zhichuang, chaopin, chaopin1, chaopin2, chaopin3, chaopin4, chaopin5,
-  tool1, tool2, tool3, tool4, tool5, tool6,jiemi3,
+  tool1, tool2, tool3, tool4, tool5, tool6,jiemi3,tool7,tool8,
   wenyang,bannerVideo,wenyang1,wenyang2,wenyang3,wenyang4
 }

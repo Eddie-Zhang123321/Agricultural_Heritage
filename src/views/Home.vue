@@ -1,45 +1,33 @@
 <template>
   <div class="home">
     <Navbar />
-    <div style="height: 55px;"></div>
+    <div style="height: 20px;"></div>
 
     <!-- 顶部轮播图 -->
     <header>
       <div class="carousel-container">
-        <el-carousel 
-          :interval="carouselInterval" 
-          arrow="always" 
-          height="700px"
-          ref="carouselRef"
+        <el-carousel :interval="carouselInterval" arrow="always" height="700px" ref="carouselRef"
           @change="handleCarouselChange">
           <el-carousel-item v-for="(item, index) in banners" :key="index">
             <template v-if="item.type === 'video'">
-             <video 
-                :src="item.videoUrl" 
-                class="carousel-bg" 
-                autoplay 
-                muted 
-                playsinline
-                @ended="onVideoEnded"
-                @play="onVideoPlay"
-                ref="videoRefs"
-              ></video>
-              
+              <video :src="item.videoUrl" class="carousel-bg" autoplay muted playsinline @ended="onVideoEnded"
+                @play="onVideoPlay" ref="videoRefs"></video>
+
             </template>
             <template v-else>
               <img :src="item.imageUrl" alt="Banner" class="carousel-bg" />
               <div class="mask"></div>
-            <div class="corner-icon">
-              <img :src="images.locationIcon" class="icon-img" />
-              <img :src="images.locationText" class="location" />
-            </div>
-            <div class="center-content">
-              <img :src="images.mainLogo" class="center-logo" />
-              <img :src="images.titleImg" class="center-img" />
-              <img :src="images.startBtn" class="start-btn" style="margin-top: 50px;" />
-            </div>
+              <div class="corner-icon">
+                <img :src="images.locationIcon" class="icon-img" />
+                <img :src="images.locationText" class="location" />
+              </div>
+              <div class="center-content">
+                <img :src="images.mainLogo" class="center-logo" />
+                <img :src="images.titleImg" class="center-img" />
+                <img :src="images.startBtn" class="start-btn" style="margin-top: 50px;" />
+              </div>
             </template>
-            
+
           </el-carousel-item>
         </el-carousel>
       </div>
@@ -48,35 +36,13 @@
     <main>
       <!-- 农遗介绍 -->
       <section class="about-agricultural-heritage">
+        <h2 class="biaoti1">板块一：农遗数字基因</h2>
         <div class="container">
 
-          <h2>农遗数字基因</h2>
-          <p>农业文化遗产是指人类与其所处环境长期协同发展中创造并传承的独特农业生产系统。全球重要农业文化遗产是由与其领土关
+          <p style="color: black;">农业文化遗产是指人类与其所处环境长期协同发展中创造并传承的独特农业生产系统。全球重要农业文化遗产是由与其领土关
             系错综复杂的社区居住的农业生态系统。这些不断进化的遗产地是具有复原力的系统，它们特点是显著的农业生物多样性、传统知
             识、宝贵的文化和景观，由农民、牧民、渔民和森林居民以有助于他们生计和粮食安全的方式进行可持续管理。截至2025年，中国
             全球重要农业文化遗产增至25项，数量保持世界首位。</p>
-
-          <div class="beijingtu">
-          <!-- 专家介绍 -->
-          <el-card class="experts-card" shadow="always">
-            <el-row :gutter="0">
-              <el-col :span="24" v-for="expert in experts" :key="expert.name">
-                <el-card class="expert-card">
-                  <el-row :gutter="0">
-                    <el-col :span="6">
-                      <el-avatar :src="expert.avatar" size="large" />
-                    </el-col>
-                    <el-col :span="18">
-                      <h3>{{ expert.name }}</h3>
-                      <p>{{ expert.title }}</p>
-                      <p>{{ expert.desc }}</p>
-                    </el-col>
-                  </el-row>
-                </el-card>
-              </el-col>
-            </el-row>
-          </el-card>
-
           <!-- 遗产图卡 -->
           <el-row :gutter="20" class="card-area">
             <el-col :span="8" v-for="item in items" :key="item.title">
@@ -87,54 +53,85 @@
               </router-link>
             </el-col>
           </el-row>
-          </div>
         </div>
       </section>
 
       <!-- 其他模块预留 -->
-      <section class="agricultural-heritage-digital-gene-map">
-        <p>农业文化遗产作为一种复合型遗产，包括的自然景观、景观人文、景观聚落、农业景观、以及支撑景观运作的景观生态系统
-          对中国传统景观基因的研究具有重要的示范价值。运用扎根理论与图谱研究法分析客观赋权获得5类景观基因因子:聚落景观基因
-          自然景观基因、农业景观基因、景观人文基因、生态系统基因。</p>
-        <img :src="images.digitalGeneMap" alt="农遗数字基因图谱" />
-      </section>
+    
       <section class="agricultural-heritage-AI-trip">
-        <h2>农遗智游</h2>
-        <p>“农遗智游”板块运用趣味性与知识性兼备的互动形式，推广与普及全球重要农业文化遗产知识。将丰富的农遗知识体系融入拼
-          图、解谜、策略规划等多元化的益智游戏之中。用户通过参与互动游戏环节，直观了解传统农耕技艺、特色农作物品种、可持续农
-          业生态系统以及深厚的农耕文化内涵。有效降低了知识获取的门槛，显著提升了学习的主动性与记忆留存率。</p>
-        <div class="jigsaw" style="background-color: white; border-radius: 20px;">
-          <img class="jigsaw-img" style="margin-top: 10px;" :src="images.puzzle" alt="" />
+        <h2 class="biaoti1">部分二：农遗工具箱</h2>
+
+        <div class="jigsaw" >
+          <div class="biaoti" style="background-color: rgb(246, 240, 225);">
+              <p style="color: black;margin: 0;">趣游·益智拼图</p>
+            </div>
           <div style="min-width: 1200px;">
             <puzzle />
           </div>
-
         </div>
         <div class="jigsaw">
-          <img class="jigsaw-img" :src="images.map" alt="" />
-          <div class="puzzle-container">
-            <img :src="images.map1" alt="" style="width: 100%;height: auto;" />
-            <img :src="images.map2" alt="" style="width: 100%;height: auto;" />
-          </div>
+          
+            <div class="biaoti" style="background-color: white;">
+              <p style="color: black;margin: 0;">小程序·蚕桑大亨</p>
+            </div>
+            <div class="mini-program-section">
+              <!-- 左侧 手机+视频 -->
+              <div class="mini-left">
+                <div class="">
+                  <video autoplay loop muted playsinline class="demo-video">
+                    <source src="@/assets/蚕桑大亨/demo-video.mp4" type="video/mp4" />
+                  </video>
+                  <img src="@/assets/蚕桑大亨/left.png" alt="演示图片" class="code" />
+                </div>
+                <img src="@/assets/蚕桑大亨/qrcode.png" alt="演示图片" class="code1" />
+              </div>
+
+              <!-- 右侧 说明文字 + 8 张截图 -->
+              <div class="mini-right">
+                <div class="screenshot-grid">
+                  <div class="screenshot" v-for="(img, index) in imageList" :key="index">
+                    <img :src="img" :alt="`截图${index + 1}`" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          
         </div>
       </section>
       <section class="digital-cultural-creativity">
-        <h2>农遗智创</h2>
+        <h2 class="biaoti1">板块三：农遗AI智创</h2>
+        <div class="biaoti" style="background-color:rgb(211, 231, 196); margin-left: 18px;margin-bottom: 20px;width: 400px;">
+              <p style="color: black;margin: 0;">案例1-桑基鱼塘AI生成风格插画</p>
+            </div>
         <img :src="images.zhichuang" alt="" class="new-img" />
       </section>
       <section class="new-team-of-agricultural-heritage">
-        <h2>农遗潮品</h2>
-        <div style="height: 160px;">
-          <img :src="images.chaopin1" alt="" style="height: 100%;width: auto;" />
-          <img :src="images.chaopin2" alt="" style="height: 100%;width: auto;" />
+        <h2 class="biaoti1">板块四：农遗素材库</h2>
+         <div class="section-title" style="margin-top: 20px; margin-left: 150px;"><p style="margin-bottom: 0;">地理纹样素材</p></div>
+        <div class="wenyang">
+            <img :src="images.wenyang1" alt="">
+            <img :src="images.wenyang2" alt="">
+            <img :src="images.wenyang3" alt="">
+            <img :src="images.wenyang4" alt="">
         </div>
-        <div style="height: 175px;">
-          <img :src="images.chaopin3" alt="" style="height: 100%;width: auto;" />
-          <img :src="images.chaopin4" alt="" style="height: 100%;width: auto;" />
-        </div>
+        <h2 class="section-title" style="margin-top: 20px; margin-left: 150px;"><p style="margin-bottom: 0;">插画风格素材</p></h2>
+
+            <!-- 轮播图 -->
+
+            <el-carousel :interval="4000" type="card" height="300px">
+                <el-carousel-item v-for="(item, index) in newExplorationItems" :key="item">
+                    <div class="carousel-image1">
+                        <img :src="item.image" alt="{{ item.title }}" class="carousel-img1" />
+                        <div class="mask1">
+                            <span class="mask-text">{{ item.content }}</span> <!-- 遮罩层上的文字 -->
+                        </div>
+                    </div>
+
+                </el-carousel-item>
+            </el-carousel>
 
 
-        <img :src="images.chaopin5" alt="" class="new-img" />
+        
       </section>
     </main>
 
@@ -154,7 +151,18 @@ const carouselRef = ref(null)
 const videoRefs = ref([])
 const isVideoPlaying = ref(false)
 const carouselInterval = ref(3000) // 使用响应式数据控制轮播间隔
+const imageModules = import.meta.glob('@/assets/蚕桑大亨/图像 *.png', { eager: true });
+const imageList = Object.values(imageModules).map(module => module.default);
 
+const newExplorationItems = ref([
+    { image: images.ty1, content: '【遗产新生】荻港古建' },
+    { image: images.ty2, content: '【遗产新生】荻港古建' },
+    { image: images.ty3, content: '【遗产新生】荻港古建' },
+    { image: images.ty4, content: '【遗产新生】荻港古建' },
+    { image: images.ty5, content: '【遗产新生】荻港古建' },
+    { image: images.ty6, content: '【遗产新生】荻港古建' },
+    { image: images.ty7, content: '【遗产新生】荻港古建' }
+])
 const handleCarouselChange = (currentIndex) => {
   // 当轮播图切换时，如果之前有视频在播放，需要暂停它
   const prevVideo = videoRefs.value.find((video, index) => index !== currentIndex && video);
@@ -162,7 +170,7 @@ const handleCarouselChange = (currentIndex) => {
     prevVideo.pause();
     isVideoPlaying.value = false;
   }
-  
+
   // 如果当前是视频项，禁用自动播放
   if (banners.value[currentIndex] && banners.value[currentIndex].type === 'video') {
     carouselInterval.value = 0; // 禁用自动播放
@@ -193,7 +201,7 @@ const banners = ref([
   { imageUrl: images.banner1 },
   { imageUrl: images.banner2 },
   { imageUrl: images.banner3 }
-  
+
 ])
 
 const experts = [
@@ -246,7 +254,7 @@ header {
   position: relative;
   height: 700px;
   overflow: hidden;
-  margin-bottom: 40px;
+  margin-bottom: 0px;
 
 }
 
@@ -255,7 +263,7 @@ header {
   height: 500px;
   object-fit: cover;
   position: absolute;
-  top: 0;
+  top: 0px;
   left: 0;
   z-index: 0;
 }
@@ -332,21 +340,21 @@ main {
 }
 
 /* 背景图全覆盖 section */
-.beijingtu{
-  position: relative;
+.about-agricultural-heritage {
+  margin-top: 0;
   background-image: url("@/assets/矩形 1460.png");
-  background-size: cover;
+  background-size: auto;
   background-position: center;
   background-repeat: no-repeat;
-  padding: 0px 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-  
+  width: 100vw;
+  min-height: 100vh;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
 }
 
 /* 背景遮罩增强文字可读性 */
 
-.about-agricultural-heritage .container {
+.container {
   position: relative;
   z-index: 1;
   max-width: 1200px;
@@ -360,7 +368,7 @@ main {
   border-radius: 12px;
   padding: 30px;
   margin-bottom: 30px;
-  color: #333;
+  color: black;
 }
 
 .intro-card h2 {
@@ -368,14 +376,14 @@ main {
   font-weight: 600;
   margin-bottom: 16px;
   text-align: center;
-  color: #222;
+  color: black;
 }
 
 .intro-card p {
   line-height: 1.8;
   font-size: 16px;
   text-align: justify;
-  color: #444;
+  color: black;
 }
 
 /* 卡片区域样式 */
@@ -386,11 +394,11 @@ main {
 
 .section-title {
   font-size: 24px;
+  margin:0;
   margin-bottom: 20px;
   font-weight: bold;
   color: #1a1a1a;
   position: relative;
-  padding-left: 15px;
   display: flex;
   align-items: center;
 }
@@ -550,11 +558,13 @@ main {
 }
 
 .jigsaw {
-  max-width: 1200px;
+  max-width: 1300px;
   display: flex;
   flex-direction: column;
   margin: 40px 0;
   align-items: flex-start;
+  background-color: white;
+   border-radius: 20px;
 }
 
 .jigsaw-img {
@@ -578,11 +588,14 @@ main {
 }
 
 .new-team-of-agricultural-heritage {
-  margin: 50px 0px;
+  margin: 50px -150px;
+  background-color: rgb(246, 240, 225);
+  margin-bottom: 0px;
+
 }
 
 .digital-cultural-creativity {
-  margin: 50px 0px;
+  margin: 20px 0px;
   text-align: center;
 }
 
@@ -599,6 +612,7 @@ main {
 .card-area .el-card p {
   cursor: default;
 }
+
 .carousel-bg {
   width: 100%;
   height: 100%;
@@ -612,4 +626,166 @@ main {
 .carousel-bg[type="video"] {
   object-fit: cover;
 }
+
+.biaoti1 {
+  font-size: 40px;
+  color: black;
+  margin-top: 0;
+  padding-top: 10px;
+}
+
+.mini{
+  background-color: white;
+  padding-top: 20px;
+  
+}
+.mini-program-section {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 5fr 7fr;
+  margin: 0 auto 40px;
+  gap: 40px;
+  max-width: 1200px;
+  height: 700px
+}
+
+.mini-left {
+
+  position: relative;
+}
+
+.code {
+  width: auto;
+  height: 700px;
+  object-fit: cover;
+}
+
+.code1 {
+  position: absolute;
+  left: 0px;
+  top: 600px;
+  width: 100px;
+  height: auto;
+}
+.demo-video {
+  position: absolute;
+  top: 16px;
+  left: 208px;
+  width: 246px;
+  height: auto;
+  border-radius: 30px;
+  object-fit: cover;
+}
+
+/* 右侧 */
+.mini-right {}
+
+.screenshot-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.screenshot img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.biaoti {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  border-radius: 23px;
+  border: 2px solid black;
+  width: 200px;
+  height: 35px;
+  line-height: 35px;
+  margin-left: 50px;
+  margin-top: 20px;
+}
+.section-title {
+    font-size: 32px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #1a1a1a;
+    position: relative;
+    padding-left: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.wenyang {
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 20px;
+}
+.wenyang img {
+    width: 100%;
+    height: 300px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-section {
+    background-color: #f5f7fa;
+    border-radius: 16px;
+    padding: 30px;
+    margin-bottom: 50px;
+}
+
+.el-carousel_container {
+    width: 300px !important;
+}
+
+
+
+.el-carousel {
+    padding: 50px 0px;
+    padding-top: 20px;
+    
+}
+
+.carousel-item {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    position: relative;
+}
+
+.carousel-image1 {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f2f5;
+}
+
+.carousel-image1 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* 图片铺满容器 */
+}
+
+.mask1 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 20%;
+    /* 覆盖下1/3部分 */
+    background-color: rgba(179, 203, 201, 0.5);
+    /* 半透明黑色遮罩 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    /* 确保遮罩在背景上方但在主文字下方 */
+}
+
 </style>

@@ -17,6 +17,7 @@
                     <h2 class="biaoti1">农业生物多样性</h2>
                 </div>
             </div>
+            <img :src="images.digitalGeneMap" alt="农遗数字基因图谱"  style="max-width: 800px;height: auto;"/>
             <div class="">
                 <h2 class="biaoti">粮食和生计安全</h2>
                 <div class="">

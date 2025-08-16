@@ -34,7 +34,11 @@
                     </div>
                 </div>
             </div>
-
+            <div class="">
+                <img :src="images.worknew1" alt="" style="width: 1200px; height: auto; margin-top: 60px;">
+                <img :src="images.worknew2" alt="" style="width: 1200px; height: auto; margin-top: 10px;">
+                <img :src="images.worknew3" alt="" style="width: 1200px; height: auto; margin-top: 10px;">
+            </div>
             <!-- 作品展示区域 -->
 
             <div class="head-box" style="margin-top: 70px;">

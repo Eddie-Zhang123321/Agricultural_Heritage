@@ -28,8 +28,22 @@
     </div>
     <hr class="head-hr" style="color: rgb(180, 195, 191);" />
   </div>
+  <section style="background-color: rgb(232, 236, 234);">
 
-
+  
+  <div class="" style="margin-bottom: 50px;padding-top: 20px;">
+    <div class="biaoti" style="background-color: white;width: 300px;">
+      <p style="color: black;">AI纹样·XFUN智能生成</p>
+    </div>
+    <img :src="images.tool7" alt="" style="max-width: 1200px; height: auto; margin-top: 10px;">
+  </div>
+  <div class="" style="padding-bottom: 50px;">
+    <div class="biaoti" style="background-color: white;width: 300px;">
+      <p style="color: black;">AI包装生成·XFUN智能生成</p>
+    </div>
+    <img :src="images.tool8" alt="" style="max-width: 1200px; height: auto; margin-top: 10px;">
+  </div>
+  </section>
   <div class="mini">
     <div class="biaoti" style="background-color: white;">
       <p style="color: black;">小程序·蚕桑大亨</p>
