@@ -1,12 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../views/Home.vue'
-import About from '../views/About.vue'
-import Material from '../views/Material.vue'
-import Create from '../views/Create.vue'
-import Gene from '../views/gene.vue'
-import sangjiyutang from '../views/sangjiyutang.vue'
-import toolbox from '../views/toolbox.vue'
-import { pa } from 'element-plus/es/locales.mjs'
+
+// 使用动态导入实现路由懒加载
+const Home = () => import('../views/Home.vue')
+const About = () => import('../views/About.vue')
+const Material = () => import('../views/Material.vue')
+const Create = () => import('../views/Create.vue')
+const Gene = () => import('../views/gene.vue')
+const sangjiyutang = () => import('../views/sangjiyutang.vue')
+const toolbox = () => import('../views/toolbox.vue')
 
 const routes = [
   {
