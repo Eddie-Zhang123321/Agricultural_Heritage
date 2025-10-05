@@ -37,8 +37,7 @@
 
                 <div class="footer-column">
                     <h4>关于农遗新生团队</h4>
-                    <p>浙江省杭州市临平区威泰路8号<br />浙江理工大学临平校区/艺术与设计学院</p>
-                    <p>Tel: +86 18107033082</p>
+
                 </div>
 
                 <div class="footer-column follow-us">

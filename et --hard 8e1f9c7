@@ -1,0 +1,36 @@
+[33m3f15fdd[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m compress and optimize
+[33m8e1f9c7[m 8.16中期提交
+[33m83279b1[m 8.16整体修改
+[33m4a01eb9[m server config
+[33m2c0a8ba[m 优化整体网页使之与效果图相似
+[33maf4556c[m video addded
+[33meb15295[m 工具箱页面新增模块以及其他部分的优化
+[33mf3c01c4[m 蚕桑大亨
+[33m44604af[m 合并远程更新并解决工作流文件冲突
+[33m3bf4b67[m 新增农遗工具箱页面，修改主页的名称
+[33mceee345[m 先登录
+[33m9e87c1c[m 1705
+[33m3781f94[m 显式
+[33m7dc5e80[m 删除
+[33m3cd8bdc[m target
+[33m349c919[m 1558
+[33mb16d2c5[m 1549
+[33m3d29677[m 1537
+[33m74491a6[m fix: local install cloudbase cli and deploy with npx tcb
+[33m6139253[m support --containerPath
+[33mfe2dda6[m fix: upgrade cloudbase cli to support --containerPath
+[33m95c4348[m GitHub Actions配置
+[33m7087653[m 添加主页面后半部分
+[33m3f4ffce[m 修复智创部分问题
+[33m84d6a29[m ai智创部分
+[33m89b6a9e[m 扩充桑基鱼塘细节页面
+[33md8ab1aa[m 添加基因页面和相关资源，更新导航和路由
+[33m6887dc5[m 修复智创部分问题
+[33mc4ff2fe[m Merge branch 'master' of https://github.com/Eddie-Zhang123321/Agricultural_Heritage
+[33m11892fd[m 增加农遗智创板块
+[33m49a8be6[m[33m ([m[1;33mtag: [m[1;33mvue[m[33m)[m 撤回vercel配置
+[33m107343f[m 修复长路径
+[33m11a785f[m add vercel config for long paths
+[33m2daa2fb[m add vercel config for long paths
+[33m44f5c84[m 实现导航栏路由跳转
+[33mc222194[m 保存所有本地更改
