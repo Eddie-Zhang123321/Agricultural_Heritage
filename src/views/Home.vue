@@ -56,7 +56,6 @@
         </div>
       </section>
 
-      <!-- 其他模块预留 -->
     
       <section class="agricultural-heritage-AI-trip">
         <h2 class="biaoti1">部分二：农遗工具箱</h2>

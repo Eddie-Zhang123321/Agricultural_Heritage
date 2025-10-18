@@ -8,7 +8,7 @@ const Create = () => import('../views/Create.vue')
 const Gene = () => import('../views/gene.vue')
 const sangjiyutang = () => import('../views/sangjiyutang.vue')
 const toolbox = () => import('../views/toolbox.vue')
-
+const dilsey = () => import('../views/dilsey.vue')
 const routes = [
   {
     path: '/',
@@ -46,6 +46,11 @@ const routes = [
     path: '/toolbox',
     name: '农遗工具箱',
     component: toolbox
+  },
+  {
+    path:'/Dilsey',
+    name: '荻小渔',
+    component: dilsey
   }
 
 ]
