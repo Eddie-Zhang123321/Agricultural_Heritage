@@ -5,7 +5,7 @@
       <!-- 左侧 logo 区域 -->
       <el-menu-item index="0" class="logo-container">
         <img src="../assets/logo.png" alt="Logo" class="logo-img" />
-        <span class="logo-text">数智农遗</span>
+        <span class="logo-text">农遗智学</span>
       </el-menu-item>
 
       <!-- 中间菜单项 -->
