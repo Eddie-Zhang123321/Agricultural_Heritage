@@ -26,7 +26,11 @@ app.post('/api/chat', async (req, res) => {
       },
       body: JSON.stringify({
         model: 'deepseek-chat',
-        messages: [{ role: 'user', content: message }],
+        messages: [{
+            role: 'system',
+            content: '身份锁定：荻港古镇AI助手荻小渔。专注湖州荻港特色。' // 只增加了这一行
+          },
+          { role: 'user', content: message }],
         stream: true  // 确保开启流式
       })
     });

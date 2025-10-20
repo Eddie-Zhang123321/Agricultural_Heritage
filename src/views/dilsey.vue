@@ -75,7 +75,7 @@ const scrollToBottom = () => {
 
 const fetchAIAnswer = async (query) => {
     try {
-        const response = await fetch('http://localhost:8080/api/chat', {
+        const response = await fetch('http://150.158.7.109/api/chat', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

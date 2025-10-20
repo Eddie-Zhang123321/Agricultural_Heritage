@@ -9,6 +9,7 @@ const Gene = () => import('../views/gene.vue')
 const sangjiyutang = () => import('../views/sangjiyutang.vue')
 const toolbox = () => import('../views/toolbox.vue')
 const dilsey = () => import('../views/dilsey.vue')
+const stubs = () => import('../views/stub.vue')
 const routes = [
   {
     path: '/',
@@ -51,6 +52,11 @@ const routes = [
     path:'/Dilsey',
     name: '荻小渔',
     component: dilsey
+  },
+  {
+    path:'/stub',
+    name:'票根',
+    component: stubs
   }
 
 ]
