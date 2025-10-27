@@ -1,6 +1,5 @@
 <template>
     <div class="ai-guide-page">
-        <!-- 顶部问候区 -->
         <header class="ai-header-card">
             <img src="../assets/dilsey.png" alt="荻小渔头像" class="ai-avatar" />
             <div class="ai-header-text">
@@ -9,23 +8,22 @@
             </div>
         </header>
 
-        <!-- 猜你想问 -->
-        <section class="ai-suggest-box">
-            <h3>猜你想问</h3>
-            <div class="suggest-list">
-                <div v-for="q in suggestedQuestions" :key="q" class="suggest-item" @click="handleGuessQuestionClick(q)">
-                    <el-icon>
-                        <ChatLineRound />
-                    </el-icon>
-                    <span>{{ q }}</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- 聊天展示区 -->
         <main class="ai-chat-area" ref="chatContainer">
+
+            <section class="ai-suggest-box">
+                <h3>猜你想问</h3>
+                <div class="suggest-list">
+                    <div v-for="q in suggestedQuestions" :key="q" class="suggest-item"
+                        @click="handleGuessQuestionClick(q)">
+                        <el-icon>
+                            <ChatLineRound />
+                        </el-icon>
+                        <span>{{ q }}</span>
+                    </div>
+                </div>
+            </section>
+
             <div v-for="(msg, i) in messages" :key="i" class="chat-message" :class="msg.role">
-                <!-- 🔥 关键修改：使用 v-html 而不是 {{ }} -->
                 <div class="bubble" v-if="!msg.loading" v-html="msg.content"></div>
                 <div v-else class="loading-dots">
                     <span class="dot"></span><span class="dot"></span><span class="dot"></span>
@@ -33,7 +31,6 @@
             </div>
         </main>
 
-        <!-- 输入框 -->
         <footer class="ai-input-bar">
             <el-input v-model="userQuery" placeholder="有什么想问我的嘛~" size="large" clearable @keyup.enter="handleSend"
                 :disabled="isLoading" />
@@ -48,7 +45,7 @@
 </template>
 
 <script setup>
-import { ref, nextTick } from "vue";
+import { ref, nextTick, onMounted } from "vue";
 import { ChatLineRound, Promotion } from "@element-plus/icons-vue";
 import { ElMessage } from "element-plus";
 import { marked } from 'marked';
@@ -72,6 +69,10 @@ const scrollToBottom = () => {
         }
     });
 };
+
+onMounted(() => {
+    scrollToBottom();
+});
 
 const fetchAIAnswer = async (query) => {
     try {
@@ -135,7 +136,7 @@ const handleSend = async () => {
     const query = userQuery.value.trim();
     if (!query) return;
 
-    messages.value.push({ role: "user", content: query });
+    messages.value.push({ role: "user", content: query, loading: false });
     userQuery.value = "";
     isLoading.value = true;
     scrollToBottom();
@@ -157,12 +158,16 @@ const handleSend = async () => {
 </script>
 
 <style scoped>
+/* 移动端适配：使用 flex + vh 确保全屏布局和正确滚动 */
 .ai-guide-page {
     background: linear-gradient(to bottom, #e8f3ff 0%, #ffffff 100%);
-    min-height: 100vh;
+    height: 100vh;
+    /* 确保占据全视口高度 */
     display: flex;
     flex-direction: column;
     font-family: "Helvetica Neue", Arial, sans-serif;
+    overflow: hidden;
+    /* 防止整个页面的滚动，只让 chat-area 滚动 */
 }
 
 /* 顶部自我介绍卡片 */
@@ -175,6 +180,8 @@ const handleSend = async () => {
     display: flex;
     align-items: center;
     gap: 15px;
+    flex-shrink: 0;
+    /* 保证不被压缩 */
 }
 
 .ai-avatar {
@@ -196,13 +203,15 @@ const handleSend = async () => {
     margin-top: 6px;
 }
 
-/* 猜你想问 */
+/* 猜你想问 (现在在 ai-chat-area 内部，随聊天记录滚动) */
 .ai-suggest-box {
     background: #fff;
-    margin: 15px 10px;
+    /* 移除顶部和底部的 margin，让它更像聊天内容的一部分 */
+    margin: 0 10px 15px 10px;
     padding: 15px;
     border-radius: 12px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    flex-shrink: 0;
 }
 
 .ai-suggest-box h3 {
@@ -227,17 +236,27 @@ const handleSend = async () => {
     color: #1a4f8b;
     cursor: pointer;
     transition: 0.2s;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .suggest-item:hover {
     background: #dceeff;
 }
 
+.suggest-item:active {
+    background: #c7e0ff;
+}
+
 /* 聊天展示 */
 .ai-chat-area {
     flex: 1;
+    /* 占据剩余空间 */
     overflow-y: auto;
+    /* 自身可滚动 */
     padding: 10px 15px;
+    /* 调整内边距，确保内容不贴边 */
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
 }
 
 .chat-message {
@@ -254,11 +273,12 @@ const handleSend = async () => {
 }
 
 .bubble {
-    max-width: 75%;
+    max-width: 80%;
     padding: 10px 14px;
     border-radius: 18px;
-    font-size: 14px;
-    line-height: 1.5;
+    font-size: 15px;
+    line-height: 1.6;
+    word-break: break-word;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
@@ -275,7 +295,7 @@ const handleSend = async () => {
     border-bottom-left-radius: 4px;
 }
 
-/* 简洁的HTML内容样式 */
+/* 简洁的HTML内容样式 - 恢复原版：列表不带符号/序号 */
 .bubble :deep(strong) {
     font-weight: 600;
     color: #1a4f8b;
@@ -288,17 +308,19 @@ const handleSend = async () => {
     font-weight: 600;
 }
 
-.bubble :deep(ul) {
+.bubble :deep(ul),
+.bubble :deep(ol) {
     margin: 8px 0;
     padding-left: 0;
     list-style: none;
-    /* 移除所有列表符号 */
+    /* 强制移除所有列表符号/序号 */
 }
 
 .bubble :deep(li) {
     margin: 6px 0;
     padding-left: 0;
     list-style: none;
+    /* 强制移除所有列表符号/序号 */
 }
 
 .bubble :deep(p) {
@@ -322,16 +344,27 @@ const handleSend = async () => {
     border-radius: 50%;
     width: 42px;
     height: 42px;
+    min-width: 42px;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 0;
 }
 
 /* 加载动画 */
 .loading-dots {
+    /* 保持与 bubble 相似的 padding */
+    padding: 10px 14px;
     display: flex;
     align-items: center;
     height: 20px;
+    /* 确保加载点在气泡内 */
+    background: #ffffff;
+    border: 1px solid #d9e7ff;
+    border-radius: 18px;
+    border-bottom-left-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    max-width: 80%;
 }
 
 .dot {

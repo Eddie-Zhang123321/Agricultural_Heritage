@@ -19,16 +19,7 @@
             </div>
         </div>
 
-        <div class="">
-        <div class="section-title" style="margin-top: 20px; margin-left: 120px;"><p>地理纹样素材</p></div>
-        <div class="wenyang">
-            <img :src="images.wenyang1" alt="">
-            <img :src="images.wenyang2" alt="">
-            <img :src="images.wenyang3" alt="">
-            <img :src="images.wenyang4" alt="">
-        </div>
-        <img :src="images.wenyang" alt="" style="max-width: 1200px;height: auto;">
-    </div>
+
         <div class="section" style="padding-bottom: 0px;">
             <h2 class="section-title" style="margin-top: 20px; margin-left: 120px;">插画风格素材</h2>
 
@@ -47,66 +38,70 @@
             </el-carousel>
 
             <div style="margin: 120px; margin-bottom: 50px;margin-top:0px;">
-        <!-- 特色项目 -->
-        <div class="exploration-grid">
-            <div style="background-color:#D8E5DF; border-radius: 12px;">
-                <h3 class="hezi">粮食与生计农遗转译</h3>
-                <div class="zhuti">
+                <!-- 特色项目 -->
+                <div class="exploration-grid">
+                    <div style="background-color:#D8E5DF; border-radius: 12px;">
+                        <h3 class="hezi">粮食与生计农遗转译</h3>
+                        <div class="zhuti">
 
-                    <div class="card" v-for="(item, index) in featuredItems" :key="index">
+                            <div class="card" v-for="(item, index) in featuredItems" :key="index">
 
-                        <div class="card-image">
-                            <img :src="item.image" alt="{{ item.title }}" class="card-img" />
-                        </div>
-                        <div class="card-content">
-                            <div class="card-title">{{ item.title }}</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div style="background-color:#D8E0E6; border-radius: 12px;">
-                <h3 class="hezi">建筑风貌基因转译</h3>
-                <div class="zhuti">
-
-                    <div class="card" v-for="(item, index) in featuredItemsa" :key="index">
-
-                        <div class="card-image">
-                            <img :src="item.image" alt="{{ item.title }}" class="card-img" />
-                        </div>
-                        <div class="card-content">
-                            <div class="card-title">{{ item.title }}</div>
+                                <div class="card-image">
+                                    <img :src="item.image" alt="{{ item.title }}" class="card-img" />
+                                </div>
+                                <div class="card-content">
+                                    <div class="card-title">{{ item.title }}</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div style="background-color:#DFD9CA; border-radius: 12px;">
-                <h3 class="hezi">知识系统基因转译</h3>
-                <div class="zhuti">
+                    <div style="background-color:#D8E0E6; border-radius: 12px;">
+                        <h3 class="hezi">建筑风貌基因转译</h3>
+                        <div class="zhuti">
 
-                    <div class="card" v-for="(item, index) in featuredItemsb" :key="index">
+                            <div class="card" v-for="(item, index) in featuredItemsa" :key="index">
 
-                        <div class="card-image">
-                            <img :src="item.image" alt="{{ item.title }}" class="card-img" />
-                        </div>
-                        <div class="card-content">
-                            <div class="card-title">{{ item.title }}</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div style="background-color:#E3E3CC; border-radius: 12px;">
-                <h3 class="hezi">LOGO设计</h3>
-                <div class="zhuti">
-
-                    <div class="card" v-for="(item, index) in featuredItemsc" :key="index">
-
-                        <div class="card-image">
-                            <img :src="item.image" alt="{{ item.title }}" class="card-img" />
-                        </div>
-                        <div class="card-content">
-                            <div class="card-title">{{ item.title }}</div>
+                                <div class="card-image">
+                                    <img :src="item.image" alt="{{ item.title }}" class="card-img" />
+                                </div>
+                                <div class="card-content">
+                                    <div class="card-title">{{ item.title }}</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                    <div style="background-color:#DFD9CA; border-radius: 12px;">
+                        <h3 class="hezi">知识系统基因转译</h3>
+                        <div class="zhuti">
+
+                            <div class="card" v-for="(item, index) in featuredItemsb" :key="index">
+
+                                <div class="card-image">
+                                    <img :src="item.image" alt="{{ item.title }}" class="card-img" />
+                                </div>
+                                <div class="card-content">
+                                    <div class="card-title">{{ item.title }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="background-color:#E3E3CC; border-radius: 12px;">
+                        <h3 class="hezi">LOGO设计</h3>
+                        <div class="zhuti">
+
+                            <div class="card" v-for="(item, index) in featuredItemsc" :key="index">
+
+                                <div class="card-image">
+                                    <img :src="item.image" alt="{{ item.title }}" class="card-img" />
+                                </div>
+                                <div class="card-content">
+                                    <div class="card-title">{{ item.title }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
                 </div>
             </div>
 
@@ -115,11 +110,7 @@
     </div>
 
 
-        </div>
-    </div>
 
-    
-    
 
     <!-- 线稿设色区域 -->
     <div style="background-color:antiquewhite;margin: 120px;margin-top: 50px;border-top-left-radius: 12px;
@@ -575,13 +566,15 @@ body {
     font-size: 22px;
 
 }
+
 .wenyang {
-    display:grid;
+    display: grid;
     grid-template-columns: repeat(4, 1fr);
     max-width: 1200px;
     margin: 0 auto;
     gap: 20px;
 }
+
 .wenyang img {
     width: 100%;
     height: 300px;

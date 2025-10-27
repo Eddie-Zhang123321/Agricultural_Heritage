@@ -9,7 +9,7 @@ const Gene = () => import('../views/gene.vue')
 const sangjiyutang = () => import('../views/sangjiyutang.vue')
 const toolbox = () => import('../views/toolbox.vue')
 const dilsey = () => import('../views/dilsey.vue')
-const stubs = () => import('../views/stub.vue')
+const stubs = () => import('../views/Stub.vue')
 const routes = [
   {
     path: '/',

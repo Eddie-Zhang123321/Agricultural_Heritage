@@ -99,7 +99,7 @@ const gotoXfun = () => {
 };
 const toolboxItems = ref([
   { image: images.tool1, link: '/toolbox/tool1' },
-  { image: images.tool2, link: '/toolbox/tool2' },
+  { image: images.tool2, link: '/dilsey' },
   { image: images.tool3, link: '/toolbox/tool3' },
   { image: images.tool4, link: '/toolbox/tool4' },
   { image: images.tool5, link: '/toolbox/tool5' },
